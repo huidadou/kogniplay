@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect x="250" y="150" width="300" height="300" rx="24" fill="#ffffff" stroke="#e5e7eb"/>
+  <text x="400" y="320" text-anchor="middle" font-family="Inter, system-ui" font-size="20" fill="#0f172a">KogniPlay Cube Placeholder</text>
+</svg>
+

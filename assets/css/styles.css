@@ -1,0 +1,123 @@
+/* Global Styles for KogniPlay */
+:root {
+  --kp-primary: #1f6feb;
+  --kp-secondary: #f97316;
+  --kp-dark: #0f172a;
+  --kp-text: #0b1220;
+  --kp-muted: #64748b;
+  --kp-bg: #ffffff;
+  --kp-light: #f8fafc;
+  --kp-accent: #10b981;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Noto Sans;
+  color: var(--kp-text);
+  background: var(--kp-bg);
+  line-height: 1.6;
+}
+
+.container { width: 100%; max-width: 980px; margin: 0 auto; padding: 0 16px; }
+
+header.site-header {
+  position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.9); backdrop-filter: saturate(180%) blur(8px);
+  border-bottom: 1px solid #e5e7eb;
+}
+.navbar { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
+.brand { display: flex; align-items: center; gap: 12px; font-weight: 700; color: var(--kp-dark); text-decoration: none; font-size: 1.2rem; }
+.brand img { height: 48px; width: auto; display: block; }
+
+.nav { display: flex; gap: 16px; align-items: center; }
+.nav a { color: var(--kp-dark); text-decoration: none; padding: 8px 10px; border-radius: 8px; }
+.nav a:hover, .nav a:focus { background: var(--kp-light); }
+/* Make Register look like a normal link (no blue pill) */
+.nav .cta { background: transparent; color: var(--kp-dark); }
+.nav .cta:hover { background: var(--kp-light); }
+
+.hero {
+  position: relative; color: white; min-height: 68vh; display: grid; place-items: center; text-align: center; overflow: hidden;
+}
+.hero::before {
+  content: ; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(15,23,42,0.6), rgba(15,23,42,0.6)), url('../img/hero.jpg') center/cover no-repeat;
+  transform: scale(1.02);
+}
+.hero-inner { position: relative; padding: 12px 16px 16px; }
+.hero h1 { font-size: clamp(22px, 3.2vw, 38px); margin: 0 0 4px; font-weight: 800; letter-spacing: -0.02em; color: #0f172a; white-space: nowrap; }
+.hero p { font-size: clamp(16px, 2.5vw, 22px); margin: 0 0 24px; color: #e5e7eb; max-width: 65ch; margin-left: auto; margin-right: auto; }
+/* Tagline under video */
+.hero .hero-tagline { margin-top: 2px; margin-bottom: 6px; font-weight: 800; color: var(--kp-muted); font-size: clamp(18px, 2.8vw, 26px); }
+.btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 4px; }
+.btn { display: inline-block; padding: 12px 18px; border-radius: 12px; font-weight: 600; text-decoration: none; }
+.btn.primary { background: var(--kp-secondary); color: white; }
+.btn.secondary { background: white; color: var(--kp-dark); }
+.hero .btn.primary { padding: 14px 24px; font-size: 18px; box-shadow: 0 8px 22px rgba(249, 115, 22, 0.25); }
+.btn.lg { padding: 14px 24px; font-size: 18px; box-shadow: 0 8px 22px rgba(249, 115, 22, 0.25); }
+.btn.primary:hover { filter: brightness(0.95); }
+
+.section { padding: 64px 0; }
+.section h2 { margin: 0 0 12px; font-size: clamp(22px, 3.5vw, 32px); text-align: center; }
+.section p.lead { color: var(--kp-muted); max-width: 70ch; text-align: center; margin-left: auto; margin-right: auto; }
+
+/* Emphasis styling for Mission & Vision lines */
+.mission-vision .lead { color: #000000 !important; font-size: clamp(20px, 2.6vw, 26px); font-weight: 800; }
+.mission-vision .mv-grid { display: grid; gap: 10px; max-width: 900px; margin: 0 auto; }
+.mission-vision .mv-label { color: var(--kp-muted) !important; font-weight: 800; letter-spacing: 0.01em; font-size: clamp(20px, 2.6vw, 28px); }
+
+.grid { display: grid; gap: 20px; }
+.grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 900px) { .grid.cols-3 { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .grid.cols-3, .grid.cols-2 { grid-template-columns: 1fr; } }
+
+.card { border: 1px solid #e5e7eb; border-radius: 14px; padding: 18px; background: white; text-align: center; }
+.card h3 { margin-top: 0; }
+.card-link { display: block; color: inherit; text-decoration: none; border: 1px solid #e5e7eb; border-radius: 14px; padding: 18px; background: white; transition: box-shadow .2s ease, transform .06s ease, border-color .2s ease; }
+.card-link:hover { border-color: #d1d5db; box-shadow: 0 6px 24px rgba(15, 23, 42, 0.08); transform: translateY(-1px); }
+
+/* Centered responsive video with rounded corners */
+.video-embed { position: relative; width: 100%; max-width: 980px; margin: 0 auto 8px; }
+.video-embed::before { content: ""; display: block; padding-top: 56.25%; }
+.video-embed iframe, .video-embed video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 12px; object-fit: cover; }
+
+footer { border-top: 1px solid #e5e7eb; margin-top: 48px; }
+.footer-inner { padding: 20px 0; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: var(--kp-muted); }
+
+/* Forms */
+.form { display: grid; gap: 12px; max-width: 560px; margin-left: auto; margin-right: auto; }
+.input { width: 100%; padding: 12px 14px; border: 1px solid #d1d5db; border-radius: 10px; }
+.input:focus { outline: none; border-color: var(--kp-primary); box-shadow: 0 0 0 3px rgba(31,111,235,0.15); }
+.select { appearance: none; background: white; }
+
+/* Utilities */
+.center { text-align: center; }
+.muted { color: var(--kp-muted); }
+.space-y > * + * { margin-top: 10px; }
+
+/* Superscript sizing for TM */
+sup { font-size: 0.6em; vertical-align: super; line-height: 0; margin-left: 2px; }
+
+/* Logo lineup */
+.logo-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; align-items: center; justify-items: center; }
+.logo-row img, .logo-row svg { max-height: 36px; width: auto; opacity: 0.85; filter: grayscale(100%); }
+@media (max-width: 700px) { .logo-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Simple logo placeholder if no image available */
+.logo-placeholder { width: 36px; height: 36px; border-radius: 8px; background: linear-gradient(135deg, var(--kp-primary), var(--kp-secondary)); display: grid; place-items: center; color: white; font-weight: 800; }
+
+/* Coming Soon badge */
+.coming-soon-badge { 
+  display: inline-block; 
+  background: var(--kp-secondary); 
+  color: white; 
+  padding: 6px 16px; 
+  border-radius: 20px; 
+  font-size: 14px; 
+  font-weight: 700; 
+  margin-bottom: 16px; 
+  text-transform: uppercase; 
+  letter-spacing: 0.5px;
+}

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register — KogniPlay</title>
+  <meta name="description" content="Join KogniPlay: learners, volunteers, and partners are welcome." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="assets/css/styles.css" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="index.html">
+        <img src="assets/img/logo.png" alt="KogniPlay logo" />
+        <span>KogniPlay<sup>TM</sup></span>
+      </a>
+      <nav class="nav" data-nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="kogni-method.html">KogniMethod<sup>TM</sup></a>
+        <a href="cube.html">Products</a>
+        <a href="blog.html">Blog</a>
+        <a href="register.html" class="cta">Community</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container center">
+        <h1>Join the Community</h1>
+        <p class="lead">Fill in the form and we’ll get in touch. Your information helps us tailor programs for learners, volunteers, and partners.</p>
+        <form class="form" action="thank-you.html" method="get">
+          <label>
+            Name
+            <input class="input" type="text" name="name" placeholder="Your name" required />
+          </label>
+          <label>
+            Email
+            <input class="input" type="email" name="email" placeholder="you@example.com" required />
+          </label>
+          <label>
+            Age Group
+            <select class="input select" name="age">
+              <option value="under18">Under 18</option>
+              <option value="18-34">18–34</option>
+              <option value="35-54">35–54</option>
+              <option value="55plus">55+</option>
+            </select>
+          </label>
+          <label>
+            Reason for joining
+            <select class="input select" name="reason">
+              <option value="learner">Learner</option>
+              <option value="volunteer">Volunteer</option>
+              <option value="partner">Partner</option>
+            </select>
+          </label>
+          <button class="btn primary" type="submit">Submit</button>
+        </form>
+
+        <div style="margin-top:20px" class="muted">
+          Prefer an external form? Try our <a href="https://forms.gle/example" target="_blank" rel="noopener">Google Form</a> or <a href="https://www.notion.so" target="_blank" rel="noopener">Notion</a>.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> KogniPlay</span>
+      <span class="muted">Neuroscience × Education × Play</span>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
+
