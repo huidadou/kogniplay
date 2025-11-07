@@ -121,3 +121,24 @@ sup { font-size: 0.6em; vertical-align: super; line-height: 0; margin-left: 2px;
   text-transform: uppercase; 
   letter-spacing: 0.5px;
 }
+
+/* Pulse animation for loading dots */
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Maintenance mode - hide navigation and disable clicks */
+header.site-header .nav,
+header.site-header .brand,
+footer {
+  display: none !important;
+}
+
+header.site-header {
+  pointer-events: none;
+}
+
+header.site-header * {
+  pointer-events: none;
+}
