@@ -41,7 +41,7 @@ header.site-header {
   position: relative; color: white; min-height: 68vh; display: grid; place-items: center; text-align: center; overflow: hidden;
 }
 .hero::before {
-  content: ; position: absolute; inset: 0;
+  content: ""; position: absolute; inset: 0;
   background: linear-gradient(180deg, rgba(15,23,42,0.6), rgba(15,23,42,0.6)), url('../img/hero.jpg') center/cover no-repeat;
   transform: scale(1.02);
 }
@@ -128,17 +128,3 @@ sup { font-size: 0.6em; vertical-align: super; line-height: 0; margin-left: 2px;
   50% { opacity: 1; transform: scale(1.2); }
 }
 
-/* Maintenance mode - hide navigation and disable clicks */
-header.site-header .nav,
-header.site-header .brand,
-footer {
-  display: none !important;
-}
-
-header.site-header {
-  pointer-events: none;
-}
-
-header.site-header * {
-  pointer-events: none;
-}
