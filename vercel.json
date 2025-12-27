@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/survey",
+      "destination": "/api/survey.js"
+    }
+  ]
+}
+

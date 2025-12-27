@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Feedback Survey — KogniPlay</title>
+  <meta name="description" content="Share your feedback about KogniPlay Cube and KogniMethod video lessons." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="assets/css/styles.css?v=4" rel="stylesheet" />
+  <style>
+    .kogniplay-mini-form {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 32px;
+      background: white;
+      border-radius: 14px;
+      border: 1px solid #e5e7eb;
+    }
+    .kogniplay-mini-form h2 {
+      margin-top: 0;
+      margin-bottom: 32px;
+      font-size: clamp(24px, 3vw, 32px);
+      text-align: center;
+      color: var(--kp-dark);
+    }
+    .kogniplay-mini-form h3 {
+      margin-top: 32px;
+      margin-bottom: 16px;
+      font-size: clamp(18px, 2.2vw, 22px);
+      color: var(--kp-dark);
+      border-bottom: 2px solid var(--kp-light);
+      padding-bottom: 8px;
+    }
+    .kogniplay-mini-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--kp-text);
+    }
+    .kogniplay-mini-form select,
+    .kogniplay-mini-form textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+    .kogniplay-mini-form select:focus,
+    .kogniplay-mini-form textarea:focus {
+      outline: none;
+      border-color: var(--kp-primary);
+      box-shadow: 0 0 0 3px rgba(31,111,235,0.15);
+    }
+    .kogniplay-mini-form textarea {
+      resize: vertical;
+    }
+    .kogniplay-mini-form label[for] {
+      margin-top: 16px;
+    }
+    .kogniplay-mini-form label:has(input[type="radio"]) {
+      display: inline-block;
+      margin-right: 16px;
+      margin-bottom: 8px;
+      font-weight: 400;
+      cursor: pointer;
+    }
+    .kogniplay-mini-form label:has(input[type="radio"]) input {
+      margin-right: 6px;
+    }
+    .kogniplay-mini-form button[type="submit"] {
+      width: 100%;
+      padding: 14px 24px;
+      background: var(--kp-secondary);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 24px;
+      box-shadow: 0 8px 22px rgba(249, 115, 22, 0.25);
+    }
+    .kogniplay-mini-form button[type="submit"]:hover {
+      filter: brightness(0.95);
+    }
+    .kogniplay-mini-form br {
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="index.html">
+        <img src="assets/img/logo.png" alt="KogniPlay logo" />
+        <span>KogniPlay<sup>TM</sup></span>
+      </a>
+      <button data-mobile-toggle class="btn secondary" style="display:none">Menu</button>
+      <nav class="nav" data-nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="kogni-method.html">KogniMethod<sup>TM</sup></a>
+        <a href="index.html#products">Products</a>
+        <a href="index.html#community" class="cta">Community</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="survey.html">Survey</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <form id="survey-form" class="kogniplay-mini-form">
+          <h2>KogniPlay Cube & KogniMethod Feedback</h2>
+
+          <!-- Cube Section -->
+          <h3>A. KogniPlay Cube</h3>
+
+          <label>1. How often do you use the KogniPlay Cube?</label><br>
+          <select name="cube_frequency">
+            <option value="daily">Daily</option>
+            <option value="few_per_week">A few times per week</option>
+            <option value="few_per_month">A few times per month</option>
+            <option value="rarely">Rarely</option>
+          </select>
+          <br><br>
+
+          <label>2. How satisfied are you with the cube?</label><br>
+          <label><input type="radio" name="cube_satisfaction" value="1"> 1</label>
+          <label><input type="radio" name="cube_satisfaction" value="2"> 2</label>
+          <label><input type="radio" name="cube_satisfaction" value="3"> 3</label>
+          <label><input type="radio" name="cube_satisfaction" value="4"> 4</label>
+          <label><input type="radio" name="cube_satisfaction" value="5"> 5</label>
+          <br><br>
+
+          <label>3. How smooth is the cube turning?</label><br>
+          <select name="cube_turning">
+            <option value="very_rough">Very rough</option>
+            <option value="rough">Rough</option>
+            <option value="okay">Okay</option>
+            <option value="smooth">Smooth</option>
+            <option value="very_smooth">Very smooth</option>
+          </select>
+          <br><br>
+
+          <label>4. How comfortable is the cube to hold?</label><br>
+          <select name="cube_comfort">
+            <option value="very_uncomfortable">Very uncomfortable</option>
+            <option value="uncomfortable">Uncomfortable</option>
+            <option value="neutral">Neutral</option>
+            <option value="comfortable">Comfortable</option>
+            <option value="very_comfortable">Very comfortable</option>
+          </select>
+          <br><br>
+
+          <label>5. One thing we can improve about the cube:</label><br>
+          <textarea name="cube_improvement" rows="3"></textarea>
+          <br><br>
+
+
+          <!-- Video Lessons Section -->
+          <h3>B. KogniMethod Video Lessons</h3>
+
+          <label>6. How often do you use the video lessons?</label><br>
+          <select name="lesson_frequency">
+            <option value="every_practice">Every time I practice</option>
+            <option value="few_per_week">A few times per week</option>
+            <option value="few_per_month">A few times per month</option>
+            <option value="rarely">Rarely</option>
+            <option value="not_yet">Haven't used them yet</option>
+          </select>
+          <br><br>
+
+          <label>7. How clear are the explanations?</label><br>
+          <select name="video_clarity">
+            <option value="not_clear">Not clear</option>
+            <option value="somewhat_clear">Somewhat clear</option>
+            <option value="clear">Clear</option>
+            <option value="very_clear">Very clear</option>
+          </select>
+          <br><br>
+
+          <label>8. How helpful are the lessons?</label><br>
+          <select name="video_helpfulness">
+            <option value="not_helpful">Not helpful</option>
+            <option value="slightly_helpful">Slightly helpful</option>
+            <option value="helpful">Helpful</option>
+            <option value="very_helpful">Very helpful</option>
+          </select>
+          <br><br>
+
+          <label>9. How is the lesson pacing?</label><br>
+          <select name="video_pace">
+            <option value="too_fast">Too fast</option>
+            <option value="bit_fast">A bit fast</option>
+            <option value="just_right">Just right</option>
+            <option value="bit_slow">A bit slow</option>
+            <option value="too_slow">Too slow</option>
+          </select>
+          <br><br>
+
+          <label>10. One thing we can improve about the lessons:</label><br>
+          <textarea name="lesson_improvement" rows="3"></textarea>
+          <br><br>
+
+          <!-- Optional final comment -->
+          <h3>C. Additional Comments (Optional)</h3>
+          <textarea name="extra_comments" rows="4"></textarea>
+          <br><br>
+
+          <button type="submit">Submit Feedback</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> KogniPlay</span>
+      <span class="muted">Neuroscience × Education × Play</span>
+      <span class="muted">KogniPlay is a brand of Kognivium Pte. Ltd.</span>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Handle survey form submission
+    const surveyForm = document.getElementById('survey-form');
+    if (surveyForm) {
+      surveyForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const submitButton = surveyForm.querySelector('button[type="submit"]');
+        const originalText = submitButton.textContent;
+        submitButton.disabled = true;
+        submitButton.textContent = 'Submitting...';
+        
+        try {
+          const formData = new FormData(surveyForm);
+          const data = Object.fromEntries(formData.entries());
+          
+          // ============================================
+          // CONFIGURATION: Choose your backend type
+          // ============================================
+          // Option 1: SERVERLESS (Vercel/Netlify) - Recommended
+          //   Uses: '/api/survey' (relative path)
+          //   Deploy to: Vercel or Netlify
+          //   No server needed, runs on-demand
+          
+          // Option 2: SERVER-BASED (Express server)
+          //   Local: 'http://localhost:3000/api/survey'
+          //   Production: 'https://yourdomain.com/api/survey'
+          //   Requires: server.js running 24/7
+          // ============================================
+          
+          // Current: SERVERLESS mode (works with Vercel/Netlify)
+          // To switch to SERVER-BASED: Change to your server URL
+          
+          // Auto-detect: Use Vercel API if on your domain, or relative path if on Vercel
+          let apiUrl;
+          if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            // Local development
+            apiUrl = 'http://localhost:3000/api/survey';
+          } else if (window.location.hostname.includes('kogniplay.com')) {
+            // Your domain - use Vercel API (update this URL after deploying to Vercel)
+            apiUrl = 'https://kogniplay.vercel.app/api/survey';
+          } else {
+            // On Vercel/Netlify - use relative path
+            apiUrl = '/api/survey';
+          }
+          
+          // To use a custom server URL, replace the apiUrl assignment above with:
+          // apiUrl = 'https://your-server-domain.com/api/survey';
+          
+          const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+          });
+          
+          const result = await response.json();
+          
+          if (result.success) {
+            // Redirect to thank you page
+            window.location.href = 'thank-you.html';
+          } else {
+            alert('There was an error submitting your feedback. Please try again.');
+            submitButton.disabled = false;
+            submitButton.textContent = originalText;
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('There was an error submitting your feedback. Please try again.');
+          submitButton.disabled = false;
+          submitButton.textContent = originalText;
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+
