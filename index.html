@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <title>KogniPlay — Empowering Minds Across Generations</title>
   <meta name="description" content="KogniPlay designs evidence-based tools and experiences that enhance learning, memory, and mental agility for all ages." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link href="assets/css/styles.css?v=5" rel="stylesheet" />
+  <link href="assets/css/styles.css?v=4" rel="stylesheet" />
 </head>
 <body>
   <header class="site-header">
@@ -20,12 +20,12 @@
       <button data-mobile-toggle class="btn secondary" style="display:none">Menu</button>
       <nav class="nav" data-nav>
         <a href="index.html">Home</a>
-        <a href="about.html">About</a>
+        <a href="index.html#about">About</a>
         <a href="kogni-method.html">KogniMethod<sup>TM</sup></a>
-        <a href="cube.html">Products</a>
-        <a href="blog.html">Blog</a>
-        <a href="register.html" class="cta">Community</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html#products">Products</a>
+        <a href="index.html#community" class="cta">Community</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="survey.html">Survey</a>
       </nav>
     </div>
   </header>
@@ -33,32 +33,31 @@
   <section class="hero">
     <div class="hero-inner container">
       <h1>Empowering Minds Across Generations</h1>
-      <div class="video-embed" aria-label="KogniPlay intro video">
-        <video src="HomePageVideo.mp4" controls playsinline poster="assets/img/hero.jpg"></video>
-      </div>
       <p class="hero-tagline">KogniPlay blends neuroscience and playful learning to build memory, focus, and agility for the active aging</p>
       <div class="btns">
-        <a class="btn primary" href="register.html">Join the Community</a>
+        <a class="btn primary" href="#community">Join the Community</a>
       </div>
     </div>
   </section>
 
   <main>
-    <section class="section">
-      <div class="container center mission-vision">
-        <h2>Our Mission & Vision</h2>
-        <div class="mv-grid">
-          <div class="mv-item">
-            <div class="mv-label">Vision</div>
-            <p class="lead">Elevate human potential through play and cognitive engagement.</p>
+    <section class="section" id="about">
+      <div class="container center">
+        <h2>About KogniPlay<sup>TM</sup></h2>
+        <div class="grid cols-2" style="margin-top: 20px;">
+          <div class="card">
+            <h3>Vision</h3>
+            <p>Elevate human potential through play and cognitive engagement.</p>
           </div>
-          <div class="mv-item">
-            <div class="mv-label">Mission</div>
-            <p class="lead">Design evidence-based tools and experiences that enhance learning, memory, and mental agility for all ages.</p>
+          <div class="card">
+            <h3>Mission</h3>
+            <p>Design evidence-based tools and experiences that enhance learning, memory, and mental agility for all ages.</p>
           </div>
         </div>
-        <div class="btns" style="margin-top:12px;">
-          <a class="btn primary lg" href="about.html">Learn More</a>
+        <div style="max-width: 800px; margin: 32px auto 0;" class="center">
+          <h3>Our Story</h3>
+          <p class="lead">KogniPlay began with a simple question: how might we combine the rigor of neuroscience with the joy of play to help people learn better, remember more, and feel connected across generations?</p>
+          <p>Inspired by research in cognitive science and years of hands-on work with learners of all ages, KogniPlay was founded to create practical, engaging experiences that build mental agility. We focus on intergenerational learning because families, caregivers, and communities learn best together.</p>
         </div>
       </div>
     </section>
@@ -84,17 +83,93 @@
       </div>
     </section>
 
+    <section class="section" id="kognimethod">
+      <div class="container center">
+        <h2>KogniMethod<sup>TM</sup></h2>
+        <p class="lead" style="font-size: 1.4rem; font-weight: 600; margin-bottom: 24px;">A carefully designed cube-solving method that ensures everyone can solve a cube.</p>
+        
+        <div class="kognimethod-gallery" style="position: relative; width: 100%; max-width: 600px; margin: 32px auto; aspect-ratio: 1; border-radius: 8px; overflow: hidden;">
+          <img class="gallery-image active" src="assets/img/cube.svg" alt="KogniMethod preview 1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 1; transition: opacity 1s ease-in-out;" />
+          <img class="gallery-image" src="assets/img/blog1.svg" alt="KogniMethod preview 2" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s ease-in-out;" />
+          <img class="gallery-image" src="assets/img/blog2.svg" alt="KogniMethod preview 3" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s ease-in-out;" />
+          <img class="gallery-image" src="assets/img/blog3.svg" alt="KogniMethod preview 4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s ease-in-out;" />
+          <img class="gallery-image" src="assets/img/cube.svg" alt="KogniMethod preview 5" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s ease-in-out;" />
+        </div>
+        
+        <a class="btn primary" href="kogni-method.html">Get Started</a>
+      </div>
+    </section>
 
-    <section class="section">
-      <div class="container">
-        <h2 class="center">From the Blog</h2>
-        <div class="center" style="max-width: 800px; margin: 0 auto;">
-          <p class="lead" style="margin-bottom: 12px;">We're crafting inspiring stories, science-backed insights, and practical tips to help you keep your mind active and your heart curious.</p>
-          <p class="lead" style="margin-bottom: 20px;">Stay tuned — play with purpose begins here.</p>
-          <a class="btn primary lg" href="blog.html">Go to Blog</a>
+    <section class="section" id="products">
+      <div class="container center">
+        <h2>Products</h2>
+        <div class="coming-soon-badge" style="font-size: 1.5rem; padding: 12px 24px;">Coming Soon</div>
+        <p class="lead" style="font-size: 1.4rem; font-weight: 600;">The first edition of KogniCube will be launching soon.</p>
+      </div>
+    </section>
+
+    <section class="section" id="community">
+      <div class="container center">
+        <h2>Join the Community</h2>
+        <p class="lead">Fill in the form and we'll get in touch. Your information helps us tailor programs for learners, volunteers, and partners.</p>
+        <form class="form" action="thank-you.html" method="get">
+          <label>
+            Name
+            <input class="input" type="text" name="name" placeholder="Your name" required />
+          </label>
+          <label>
+            Email
+            <input class="input" type="email" name="email" placeholder="you@example.com" required />
+          </label>
+          <label>
+            Age Group
+            <select class="input select" name="age">
+              <option value="under18">Under 18</option>
+              <option value="18-34">18–34</option>
+              <option value="35-54">35–54</option>
+              <option value="55plus">55+</option>
+            </select>
+          </label>
+          <label>
+            Reason for joining
+            <select class="input select" name="reason">
+              <option value="learner">Learner</option>
+              <option value="volunteer">Volunteer</option>
+              <option value="partner">Partner</option>
+            </select>
+          </label>
+          <button class="btn primary" type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container center">
+        <h2>Contact & Socials</h2>
+        <div class="grid cols-2">
+          <div class="card">
+            <h3>Company Address</h3>
+            <p><strong>Kognivium Pte. Ltd.</strong><br>#07-54 Paya Lebar Square<br>Singapore</p>
+            <p><em>KogniPlay is a brand of Kognivium Pte. Ltd.</em></p>
+          </div>
+          <div class="card">
+            <h3>Inquiries</h3>
+            <form class="form" action="thank-you.html" method="get">
+              <label>
+                Your Email
+                <input class="input" type="email" name="email" placeholder="you@example.com" required />
+              </label>
+              <label>
+                Message
+                <textarea class="input" name="message" rows="4" placeholder="How can we help?" required></textarea>
+              </label>
+              <button class="btn primary" type="submit">Send</button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer>
@@ -108,6 +183,28 @@
   <script src="assets/js/main.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Auto-rotating gallery for KogniMethod section
+    (function() {
+      const galleryImages = document.querySelectorAll('.kognimethod-gallery .gallery-image');
+      if (galleryImages.length === 0) return;
+      
+      let currentIndex = 0;
+      
+      function showNextImage() {
+        // Hide current image
+        galleryImages[currentIndex].style.opacity = '0';
+        
+        // Move to next image
+        currentIndex = (currentIndex + 1) % galleryImages.length;
+        
+        // Show next image
+        galleryImages[currentIndex].style.opacity = '1';
+      }
+      
+      // Change image every 3 seconds
+      setInterval(showNextImage, 3000);
+    })();
   </script>
 </body>
 </html>
