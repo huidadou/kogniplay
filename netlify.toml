@@ -1,0 +1,9 @@
+[build]
+  # No build step needed for static site
+  publish = "."
+
+[[redirects]]
+  from = "/api/survey"
+  to = "/.netlify/functions/survey"
+  status = 200
+
