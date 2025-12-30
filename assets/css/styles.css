@@ -153,7 +153,8 @@ sup { font-size: 0.6em; vertical-align: super; line-height: 0; margin-left: 2px;
   overflow: hidden;
 }
 
-.video-wrapper video {
+.video-wrapper video,
+.video-wrapper iframe {
   position: absolute;
   top: 0;
   left: 0;
@@ -161,6 +162,7 @@ sup { font-size: 0.6em; vertical-align: super; line-height: 0; margin-left: 2px;
   height: 100%;
   object-fit: contain;
   border-radius: 12px;
+  border: 0;
 }
 
 @media (max-width: 640px) {
