@@ -265,8 +265,11 @@
           
           // Auto-detect: Use Vercel API if on your domain, or relative path if on Vercel
           let apiUrl;
-          if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-            // Local development
+          if (window.location.protocol === 'file:') {
+            // Local file - use Vercel API for testing
+            apiUrl = 'https://kogniplay.vercel.app/api/survey';
+          } else if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            // Local development server
             apiUrl = 'http://localhost:3000/api/survey';
           } else if (window.location.hostname.includes('kogniplay.com')) {
             // Your domain - use Vercel API
