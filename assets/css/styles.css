@@ -38,7 +38,7 @@ header.site-header {
 .nav .cta:hover { background: var(--kp-light); }
 
 .hero {
-  position: relative; color: white; min-height: 68vh; display: grid; place-items: center; text-align: center; overflow: hidden;
+  position: relative; color: white; min-height: 50vh; display: grid; place-items: center; text-align: center; overflow: hidden;
 }
 .hero::before {
   content: ; position: absolute; inset: 0;
