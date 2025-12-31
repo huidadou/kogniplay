@@ -287,6 +287,10 @@
             body: JSON.stringify(data)
           });
           
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          
           const result = await response.json();
           
           if (result.success) {
@@ -299,7 +303,8 @@
           }
         } catch (error) {
           console.error('Error:', error);
-          alert('There was an error submitting your feedback. Please try again.');
+          console.error('API URL attempted:', apiUrl);
+          alert('There was an error submitting your feedback. Please try again.\n\nError: ' + error.message);
           submitButton.disabled = false;
           submitButton.textContent = originalText;
         }
