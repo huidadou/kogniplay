@@ -4,7 +4,7 @@
   const nav = document.querySelector('[data-nav]');
   if (mobileToggle && nav) {
     mobileToggle.addEventListener('click', () => {
-      nav.hidden = !nav.hidden;
+      nav.classList.toggle('is-open');
     });
   }
 
