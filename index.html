@@ -4,80 +4,403 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <title>KogniPlay — Empowering Minds Across Generations</title>
-  <meta name="description" content="KogniPlay designs evidence-based tools and experiences that enhance learning, memory, and mental agility for all ages." />
+  <meta name="description" content="KogniPlay blends neuroscience and playful learning to build memory, focus, and agility for the active aging." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link href="assets/css/styles.css?v=4" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+/* ── KogniPlay Redesign Stylesheet ──────────────────────────────────────────
+   Colour palette
+   --kp-walnut:   #2A1A0E  (dark nav, headings)
+   --kp-green:    #4A9B50  (KogniGreen)
+   --kp-orange:   #F97316  (KogniOrange)
+   --kp-cream:    #FFF8F0  (warm page bg)
+   --kp-white:    #FFFCF8  (card bg)
+   --kp-sand:     #F5E6D3  (borders, dividers)
+   --kp-brown:    #7A5C3A  (body text)
+   --kp-mint:     #D4EDDA  (soft accent)
+   --kp-navy:     #1A2E1A  (community dark section)
+──────────────────────────────────────────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --kp-walnut:  #2A1A0E;
+  --kp-green:   #4A9B50;
+  --kp-orange:  #F97316;
+  --kp-orange2: #EA580C;
+  --kp-cream:   #FFF8F0;
+  --kp-white:   #FFFCF8;
+  --kp-sand:    #F5E6D3;
+  --kp-brown:   #7A5C3A;
+  --kp-mint:    #D4EDDA;
+  --kp-navy:    #1A2E1A;
+  --kp-muted:   #A07850;
+  --nav-h:      68px;
+  --radius:     12px;
+  --radius-lg:  18px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--kp-cream);
+  color: var(--kp-brown);
+  line-height: 1.65;
+  font-size: 16px;
+}
+
+/* ── NAV ─────────────────────────────────────────────────────────────────── */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--kp-walnut);
+  height: var(--nav-h);
+  display: flex; align-items: center;
+}
+
+.container { max-width: 1120px; margin: 0 auto; padding: 0 24px; width: 100%; }
+
+.navbar {
+  display: flex; align-items: center; gap: 24px;
+}
+
+.brand {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none; font-weight: 700; font-size: 18px;
+  color: var(--kp-white); white-space: nowrap;
+}
+.brand img { width: 36px; height: 36px; object-fit: contain; }
+.brand sup { font-size: 10px; color: var(--kp-orange); }
+
+.nav {
+  display: flex; align-items: center; gap: 2px; margin-left: auto;
+}
+.nav a {
+  color: rgba(255,248,240,0.7); text-decoration: none;
+  font-size: 14px; font-weight: 500; padding: 8px 11px; border-radius: 8px;
+  transition: color .15s, background .15s;
+}
+.nav a:hover { color: var(--kp-white); background: rgba(255,255,255,0.08); }
+.nav-cta, .nav a.nav-cta {
+  background: var(--kp-orange) !important;
+  color: #fff !important; font-weight: 600 !important;
+  border-radius: 8px !important; padding: 8px 16px !important;
+}
+.nav-cta:hover, .nav a.nav-cta:hover { background: var(--kp-orange2) !important; }
+
+[data-mobile-toggle] {
+  display: none; background: none; border: 1.5px solid rgba(255,255,255,0.25);
+  color: var(--kp-white); padding: 6px 14px; border-radius: 8px;
+  font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer;
+}
+
+/* ── HERO ─────────────────────────────────────────────────────────────────── */
+.hero {
+  background: var(--kp-walnut);
+  padding: 72px 24px 64px;
+  text-align: center;
+}
+.hero-inner { max-width: 680px; margin: 0 auto; }
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(249,115,22,0.15);
+  border: 1px solid rgba(249,115,22,0.35);
+  color: var(--kp-orange);
+  font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
+  padding: 5px 14px; border-radius: 100px; margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(38px, 7vw, 64px);
+  line-height: 1.1; color: var(--kp-white);
+  margin-bottom: 24px;
+}
+.hero h1 em { font-style: italic; color: var(--kp-orange); }
+
+.hero-photo {
+  width: 100%; max-width: 520px; border-radius: var(--radius-lg);
+  margin: 0 auto 24px; display: block;
+  border: 3px solid rgba(255,255,255,0.08);
+}
+
+.hero-tagline {
+  font-size: 17px; color: rgba(255,248,240,0.65);
+  max-width: 480px; margin: 0 auto; line-height: 1.7;
+}
+
+/* ── SECTIONS ────────────────────────────────────────────────────────────── */
+.section { padding: 80px 24px; }
+.section--cream { background: var(--kp-sand); }
+.section--navy  { background: var(--kp-navy); }
+.section--navy h2, .section--navy .lead { color: var(--kp-white); }
+.section--navy .section-label { color: var(--kp-orange); }
+
+.section-label {
+  display: block; font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--kp-green); margin-bottom: 8px;
+}
+
+.center { text-align: center; }
+.center .lead { margin-left: auto; margin-right: auto; }
+
+h2 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(26px, 4vw, 40px);
+  color: var(--kp-walnut); line-height: 1.15; margin-bottom: 14px;
+}
+h3 { font-size: 1.05rem; font-weight: 600; color: var(--kp-walnut); margin-bottom: 8px; }
+
+.lead {
+  font-size: 17px; color: var(--kp-brown);
+  max-width: 580px; line-height: 1.7; margin-bottom: 36px;
+}
+
+/* ── GRID ────────────────────────────────────────────────────────────────── */
+.grid { display: grid; gap: 20px; margin-top: 32px; }
+.cols-2 { grid-template-columns: repeat(2, 1fr); }
+.cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+/* ── CARDS ───────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--kp-white);
+  border: 1px solid var(--kp-sand);
+  border-radius: var(--radius-lg); padding: 28px;
+}
+.card-icon { font-size: 1.8rem; margin-bottom: 12px; }
+.card p { font-size: 0.92rem; color: var(--kp-brown); line-height: 1.65; margin: 0; }
+.card--value { text-align: center; }
+
+.story-block {
+  background: var(--kp-white); border: 1px solid var(--kp-sand);
+  border-radius: var(--radius-lg); padding: 32px 36px;
+  text-align: left; max-width: 760px; margin: 32px auto 0;
+}
+.story-block h3 { margin-bottom: 12px; }
+.story-block p { font-size: 0.95rem; color: var(--kp-brown); line-height: 1.7; margin-bottom: 12px; }
+.story-block p:last-child { margin-bottom: 0; }
+
+/* ── KOGNIMETHOD GALLERY ─────────────────────────────────────────────────── */
+.gallery-wrap {
+  position: relative; width: 100%; max-width: 560px;
+  margin: 32px auto; aspect-ratio: 4/3;
+  border-radius: var(--radius-lg); overflow: hidden;
+  border: 2px solid var(--kp-sand);
+}
+.gallery-wrap .gallery-image {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; opacity: 0; transition: opacity 1s ease-in-out;
+}
+.gallery-wrap .gallery-image.active { opacity: 1; }
+
+/* ── PRODUCTS ────────────────────────────────────────────────────────────── */
+.product-wrap { max-width: 400px; margin: 0 auto; }
+.product-carousel-frame {
+  position: relative; width: 100%; aspect-ratio: 1;
+  border-radius: var(--radius-lg); overflow: hidden;
+  border: 2px solid var(--kp-sand); margin-bottom: 20px;
+  background: var(--kp-white);
+}
+.product-carousel-frame .product-image {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: contain; opacity: 0; transition: opacity 1s ease-in-out;
+  padding: 16px;
+}
+.product-carousel-frame .product-image.active { opacity: 1; }
+
+/* ── SERVICES ────────────────────────────────────────────────────────────── */
+.services-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 24px; margin-top: 32px; max-width: 820px; margin-left: auto; margin-right: auto;
+  text-align: left;
+}
+.service-card {
+  background: var(--kp-white); border: 1px solid var(--kp-sand);
+  border-radius: var(--radius-lg); padding: 28px;
+  border-top: 4px solid var(--kp-green);
+}
+.service-card.speed { border-top-color: var(--kp-orange); }
+.service-badge {
+  display: inline-block; font-size: 11px; font-weight: 700;
+  padding: 3px 10px; border-radius: 20px; margin-bottom: 12px;
+}
+.badge-green  { background: var(--kp-mint); color: #1A5C24; }
+.badge-orange { background: #FFE8D0; color: #7A3A00; }
+.service-card p { font-size: 0.92rem; color: var(--kp-brown); line-height: 1.65; margin-bottom: 18px; }
+
+/* ── TUTORS ──────────────────────────────────────────────────────────────── */
+.tutors-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 20px; margin-top: 32px; max-width: 900px;
+  margin-left: auto; margin-right: auto; text-align: left;
+}
+
+/* ── COMMUNITY ───────────────────────────────────────────────────────────── */
+.community-card {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-lg); padding: 36px;
+  max-width: 520px; margin: 0 auto; margin-top: 8px;
+}
+
+/* ── CONTACT ─────────────────────────────────────────────────────────────── */
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1.4fr;
+  gap: 32px; align-items: start;
+}
+.address-card {
+  background: var(--kp-walnut); border-radius: var(--radius-lg); padding: 32px;
+  color: rgba(255,248,240,0.65);
+}
+.address-card h3 { color: var(--kp-white); margin-bottom: 14px; }
+.address-card p { font-size: 0.92rem; line-height: 1.7; margin-bottom: 6px; }
+.contact-form-card {
+  background: var(--kp-white); border: 1px solid var(--kp-sand);
+  border-radius: var(--radius-lg); padding: 32px;
+}
+.contact-form-card h3 { margin-bottom: 20px; }
+
+/* ── FORMS ───────────────────────────────────────────────────────────────── */
+.form { display: flex; flex-direction: column; gap: 14px; }
+.form label {
+  display: flex; flex-direction: column; gap: 6px;
+  font-size: 14px; font-weight: 600; color: var(--kp-walnut);
+}
+.section--navy .form label { color: rgba(255,248,240,0.8); }
+.input {
+  padding: 11px 14px; border: 1.5px solid var(--kp-sand);
+  border-radius: 10px; font-family: inherit; font-size: 15px;
+  color: var(--kp-walnut); background: var(--kp-white);
+  transition: border-color .15s; outline: none;
+}
+.input:focus { border-color: var(--kp-green); }
+.section--navy .input { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); color: var(--kp-white); }
+.section--navy .input::placeholder { color: rgba(255,255,255,0.35); }
+textarea.input { resize: vertical; }
+
+/* ── BUTTONS ─────────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-block; text-decoration: none; cursor: pointer;
+  font-family: inherit; font-weight: 600; font-size: 15px;
+  padding: 12px 24px; border-radius: 10px; border: none;
+  transition: background .15s, transform .1s;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn.primary { background: var(--kp-orange); color: #fff; }
+.btn.primary:hover { background: var(--kp-orange2); }
+.btn.secondary {
+  background: transparent; color: var(--kp-green);
+  border: 1.5px solid var(--kp-green);
+}
+.btn.secondary:hover { background: var(--kp-mint); }
+
+/* ── FOOTER ──────────────────────────────────────────────────────────────── */
+footer {
+  background: var(--kp-walnut);
+  padding: 36px 24px;
+}
+.footer-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  font-size: 13px; color: rgba(255,248,240,0.45);
+}
+.footer-brand { color: var(--kp-white); font-weight: 700; font-size: 15px; }
+.footer-brand sup { font-size: 9px; color: var(--kp-orange); }
+
+/* ── RESPONSIVE ──────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .cols-3, .tutors-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .cols-2, .cols-3, .tutors-grid { grid-template-columns: 1fr; }
+  .section { padding: 56px 16px; }
+  .nav { display: none; }
+  .nav.open { display: flex; flex-direction: column; position: absolute; top: var(--nav-h); left: 0; right: 0; background: var(--kp-walnut); padding: 16px; gap: 4px; }
+  [data-mobile-toggle] { display: block; margin-left: auto; }
+}
+
+  </style>
 </head>
 <body>
+
   <header class="site-header">
     <div class="container navbar">
-      <a class="brand" href="index.html">
+      <a class="brand" href="index-redesign.html">
         <img src="assets/img/logo.png" alt="KogniPlay logo" />
-        <span>KogniPlay<sup>TM</sup></span>
+        KogniPlay<sup>TM</sup>
       </a>
-      <button data-mobile-toggle class="btn secondary">Menu</button>
+      <button data-mobile-toggle aria-label="Open menu">Menu</button>
       <nav class="nav" data-nav>
-        <a href="index.html">Home</a>
-        <a href="index.html#about">About</a>
-        <a href="kogni-method.html">KogniMethod<sup>TM</sup></a>
-        <a href="index.html#products">Products</a>
-        <a href="index.html#community" class="cta">Community</a>
-        <a href="index.html#contact">Contact</a>
+        <a href="index-redesign.html">Home</a>
+        <a href="index-redesign.html#about">About</a>
+        <a href="kogni-method-redesign.html">KogniMethod<sup>TM</sup></a>
+        <a href="index-redesign.html#products">Products</a>
+        <a href="index-redesign.html#services">Services</a>
+        <a href="index-redesign.html#tutors">Teach</a>
+        <a href="index-redesign.html#community" class="nav-cta">Community</a>
+        <a href="index-redesign.html#contact">Contact</a>
         <a href="survey.html">Survey</a>
       </nav>
     </div>
   </header>
 
   <section class="hero">
-    <div class="hero-inner container">
-      <h1>Empowering Minds Across Generations</h1>
-      <img src="assets/img/photo.png" alt="KogniPlay intergenerational learning" style="max-width: 100%; width: 100%; max-width: 800px; height: auto; border-radius: 12px; margin: 24px auto; display: block; box-shadow: 0 8px 24px rgba(0,0,0,0.15);" />
-      <p class="hero-tagline">KogniPlay blends neuroscience and playful learning to build memory, focus, and agility for the active aging</p>
+    <div class="hero-inner">
+      <div class="hero-badge">Neuroscience × Education × Play</div>
+      <h1>Empowering <em>Minds</em><br>Across Generations</h1>
+      <img src="assets/img/photo.png" alt="KogniPlay intergenerational learning" class="hero-photo" />
+      <p class="hero-tagline">KogniPlay blends neuroscience and playful learning to build memory, focus, and agility for the active aging.</p>
     </div>
   </section>
 
   <main>
-    <section class="section" id="about" style="padding-top: 32px;">
+
+    <section class="section" id="about">
       <div class="container center">
+        <span class="section-label">Who We Are</span>
         <h2>About KogniPlay<sup>TM</sup></h2>
-        <div class="grid cols-2" style="margin-top: 20px;">
+        <p class="lead">Combining the rigour of neuroscience with the joy of play to help people learn better, remember more, and feel connected.</p>
+        <div class="grid cols-2">
           <div class="card">
+            <div class="card-icon">🔭</div>
             <h3>Vision</h3>
             <p>Elevate human potential through play and cognitive engagement.</p>
           </div>
           <div class="card">
+            <div class="card-icon">🧩</div>
             <h3>Mission</h3>
             <p>Design evidence-based tools and experiences that enhance learning, memory, and mental agility for all ages.</p>
           </div>
         </div>
-        <div style="max-width: 800px; margin: 32px auto 0;" class="center">
+        <div class="story-block">
           <h3>Our Story</h3>
-          <p class="lead">KogniPlay began with a simple question: how might we combine the rigor of neuroscience with the joy of play to help people learn better, remember more, and feel connected across generations?</p>
+          <p>KogniPlay began with a simple question: how might we combine the rigour of neuroscience with the joy of play to help people learn better, remember more, and feel connected across generations?</p>
           <p>Inspired by research in cognitive science and years of hands-on work with learners of all ages, KogniPlay was founded to create practical, engaging experiences that build mental agility. We focus on intergenerational learning because families, caregivers, and communities learn best together.</p>
         </div>
       </div>
     </section>
 
-    <!-- Trusted by section hidden -->
-
-    <section class="section">
+    <section class="section section--cream">
       <div class="container center">
+        <span class="section-label">What We Stand For</span>
         <h2>Values</h2>
-      </div>
-      <div class="container">
-        <div class="grid cols-3">
-          <div class="card">
+        <div class="grid cols-3" style="margin-top: 12px;">
+          <div class="card card--value">
+            <div class="card-icon">🧠</div>
             <h3>Evidence-Based</h3>
             <p>Grounded in neuroscience and education research to produce meaningful outcomes.</p>
           </div>
-          <div class="card">
+          <div class="card card--value">
+            <div class="card-icon">🤝</div>
             <h3>Inclusive by Design</h3>
             <p>Built for seniors, students, and families to learn and thrive together.</p>
           </div>
-          <div class="card">
-            <h3>Playful and Engaging</h3>
+          <div class="card card--value">
+            <div class="card-icon">✨</div>
+            <h3>Playful &amp; Engaging</h3>
             <p>Activities and tools that encourage curiosity, confidence, and connection.</p>
           </div>
         </div>
@@ -86,77 +409,136 @@
 
     <section class="section" id="kognimethod">
       <div class="container center">
+        <span class="section-label">Our Method</span>
         <h2>KogniMethod<sup>TM</sup></h2>
-        <p class="lead" style="font-size: 1.4rem; font-weight: 600; margin-bottom: 24px;">A carefully designed cube-solving method that ensures everyone can solve a cube.</p>
-        
-        <div class="kognimethod-gallery" style="position: relative; width: 100%; max-width: 600px; margin: 32px auto; aspect-ratio: 1; border-radius: 8px; overflow: hidden;">
-          <img class="gallery-image active" src="assets/img/Kognimethod%201.jpg" alt="KogniMethod 1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 1; transition: opacity 1s ease-in-out;" />
-          <img class="gallery-image" src="assets/img/Kognimethod%202.png" alt="KogniMethod 2" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s ease-in-out;" />
+        <p class="lead">A carefully designed cube-solving method that ensures everyone — regardless of age or background — can solve a cube.</p>
+        <div class="gallery-wrap">
+          <img class="gallery-image active" src="assets/img/Kognimethod%201.jpg" alt="KogniMethod step 1" />
+          <img class="gallery-image"        src="assets/img/Kognimethod%202.png" alt="KogniMethod step 2" />
         </div>
-        
-        <a class="btn primary" href="kogni-method.html">Get Started</a>
+        <a class="btn primary" href="kogni-method-redesign.html">Explore the Method</a>
       </div>
     </section>
 
-    <section class="section" id="products">
+    <section class="section section--cream" id="products">
       <div class="container center">
+        <span class="section-label">Shop</span>
         <h2>Products</h2>
-        <div style="max-width: 600px; margin: 32px auto;">
-          <div class="product-carousel" style="position: relative; width: 100%; aspect-ratio: 1; border-radius: 14px; overflow: hidden; border: 1px solid #e5e7eb; background: white; margin-bottom: 24px;">
-            <img class="product-image active" src="assets/img/product%201.png" alt="KogniPlay Cube" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; opacity: 1; transition: opacity 1s ease-in-out; padding: 20px;" />
-            <img class="product-image" src="assets/img/product%202.png" alt="KogniPlay Cube" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity 1s ease-in-out; padding: 20px;" />
+        <p class="lead">Our thoughtfully designed cube is the cornerstone tool for the KogniMethod programme.</p>
+        <div class="product-wrap">
+          <div class="product-carousel-frame">
+            <img class="product-image active" src="assets/img/product%201.png" alt="KogniPlay Cube" />
+            <img class="product-image"        src="assets/img/product%202.png" alt="KogniPlay Cube" />
           </div>
-          <a href="https://www.amazon.com/dp/B0FX2V2DZ9" target="_blank" rel="noopener noreferrer" class="btn primary" style="display: inline-block;">Buy on Amazon</a>
+          <a href="https://www.amazon.com/dp/B0FX2V2DZ9" target="_blank" rel="noopener noreferrer" class="btn primary">Buy on Amazon</a>
         </div>
       </div>
     </section>
 
-    <section class="section" id="community">
+    <section class="section" id="services">
       <div class="container center">
+        <span class="section-label">Paid Lessons</span>
+        <h2>Services</h2>
+        <p class="lead">Take your cubing further with our paid lesson programmes — for learners who want to go beyond the basics.</p>
+        <div class="services-grid">
+          <div class="service-card bld">
+            <span class="service-badge badge-green">Paid Lesson</span>
+            <h3>Blindfolded Solving</h3>
+            <p>Master memorisation and spatial reasoning by solving the cube eyes-closed. Trains working memory in ways that benefit learners of all ages — especially older adults.</p>
+            <a href="index-redesign.html#contact" class="btn secondary">Enquire</a>
+          </div>
+          <div class="service-card speed">
+            <span class="service-badge badge-orange">Paid Lesson</span>
+            <h3>Speedcubing</h3>
+            <p>Learn the CFOP method used by competitive solvers worldwide. Build finger-trick fluency, look-ahead, and algorithm recognition toward WCA competition readiness.</p>
+            <a href="index-redesign.html#contact" class="btn secondary">Enquire</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--cream" id="tutors">
+      <div class="container center">
+        <span class="section-label">Join the Team</span>
+        <h2>Teach with KogniPlay</h2>
+        <p class="lead">Are you an experienced speedcuber or blindfolded solver? We're looking for passionate tutors to deliver our paid lesson programmes — and help more people discover what cubing can do for the mind.</p>
+        <div class="tutors-grid">
+          <div class="card">
+            <div class="card-icon">🏆</div>
+            <h3>Who We're Looking For</h3>
+            <p>Competitive cubers — WCA-experienced or self-trained — with a genuine interest in teaching. Speedcubing or blindfolded solving background preferred.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">📚</div>
+            <h3>What You'll Do</h3>
+            <p>Deliver one-to-one or small group sessions using KogniPlay's curriculum. Flexible format — in-person or online, at hours that suit you.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🌱</div>
+            <h3>Why Join Us</h3>
+            <p>Be part of a mission-driven team at the intersection of cognitive science and cubing. Competitive rates, meaningful work, growing community.</p>
+          </div>
+        </div>
+        <div style="margin-top: 32px;">
+          <a href="index-redesign.html#contact" class="btn primary">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--navy" id="community">
+      <div class="container center">
+        <span class="section-label">Get Involved</span>
         <h2>Join the Community</h2>
-        <p class="lead">Fill in the form and we'll get in touch. Your information helps us tailor programs for learners, volunteers, and partners.</p>
-        <form class="form" action="thank-you.html" method="get">
-          <label>
-            Name
-            <input class="input" type="text" name="name" placeholder="Your name" required />
-          </label>
-          <label>
-            Email
-            <input class="input" type="email" name="email" placeholder="you@example.com" required />
-          </label>
-          <label>
-            Age Group
-            <select class="input select" name="age">
-              <option value="under18">Under 18</option>
-              <option value="18-34">18–34</option>
-              <option value="35-54">35–54</option>
-              <option value="55plus">55+</option>
-            </select>
-          </label>
-          <label>
-            Reason for joining
-            <select class="input select" name="reason">
-              <option value="learner">Learner</option>
-              <option value="volunteer">Volunteer</option>
-              <option value="partner">Partner</option>
-            </select>
-          </label>
-          <button class="btn primary" type="submit">Submit</button>
-        </form>
+        <p class="lead">Fill in the form and we'll be in touch. Your information helps us tailor programmes for learners, volunteers, and partners.</p>
+        <div class="community-card">
+          <form class="form" action="thank-you.html" method="get">
+            <label>
+              Name
+              <input class="input" type="text" name="name" placeholder="Your name" required />
+            </label>
+            <label>
+              Email
+              <input class="input" type="email" name="email" placeholder="you@example.com" required />
+            </label>
+            <label>
+              Age Group
+              <select class="input select" name="age">
+                <option value="under18">Under 18</option>
+                <option value="18-34">18–34</option>
+                <option value="35-54">35–54</option>
+                <option value="55plus">55+</option>
+              </select>
+            </label>
+            <label>
+              Reason for joining
+              <select class="input select" name="reason">
+                <option value="learner">Learner</option>
+                <option value="speedcuber">Speedcuber / Competitor</option>
+                <option value="volunteer">Volunteer</option>
+                <option value="partner">Partner</option>
+              </select>
+            </label>
+            <button class="btn primary" type="submit" style="margin-top: 4px;">Submit</button>
+          </form>
+        </div>
       </div>
     </section>
 
     <section class="section" id="contact">
-      <div class="container center">
-        <h2>Contact & Socials</h2>
-        <div class="grid cols-2">
-          <div class="card">
+      <div class="container">
+        <div class="center" style="margin-bottom: 40px;">
+          <span class="section-label">Reach Us</span>
+          <h2>Contact &amp; Socials</h2>
+        </div>
+        <div class="contact-grid">
+          <div class="address-card">
             <h3>Company Address</h3>
-            <p><strong>Kognivium Pte. Ltd.</strong><br>#07-54 Paya Lebar Square<br>Singapore</p>
-            <p><em>KogniPlay is a brand of Kognivium Pte. Ltd.</em></p>
+            <p><strong style="color:#fff;">Kognivium Pte. Ltd.</strong></p>
+            <p>#07-54 Paya Lebar Square<br>Singapore</p>
+            <p style="margin-top: 20px; font-size: 0.85rem; color: rgba(255,248,240,0.4);">KogniPlay is a brand of Kognivium Pte. Ltd.</p>
           </div>
-          <div class="card">
-            <h3>Inquiries</h3>
+          <div class="contact-form-card">
+            <h3>Send an Inquiry</h3>
             <form class="form" action="thank-you.html" method="get">
               <label>
                 Your Email
@@ -166,7 +548,7 @@
                 Message
                 <textarea class="input" name="message" rows="4" placeholder="How can we help?" required></textarea>
               </label>
-              <button class="btn primary" type="submit">Send</button>
+              <button class="btn primary" type="submit">Send Message</button>
             </form>
           </div>
         </div>
@@ -177,61 +559,42 @@
 
   <footer>
     <div class="container footer-inner">
-      <span>© <span id="year"></span> KogniPlay</span>
-      <span class="muted">Neuroscience × Education × Play</span>
-      <span class="muted">KogniPlay is a brand of Kognivium Pte. Ltd.</span>
+      <span class="footer-brand">KogniPlay<sup>TM</sup></span>
+      <span>© <span id="year"></span> Kognivium Pte. Ltd.</span>
+      <span>Neuroscience × Education × Play</span>
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-    
-    // Auto-rotating gallery for KogniMethod section
+
+    const toggle = document.querySelector('[data-mobile-toggle]');
+    const nav = document.querySelector('[data-nav]');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => nav.classList.toggle('open'));
+    }
+
     (function() {
-      const galleryImages = document.querySelectorAll('.kognimethod-gallery .gallery-image');
-      if (galleryImages.length === 0) return;
-      
-      let currentIndex = 0;
-      
-      function showNextImage() {
-        // Hide current image
-        galleryImages[currentIndex].style.opacity = '0';
-        
-        // Move to next image
-        currentIndex = (currentIndex + 1) % galleryImages.length;
-        
-        // Show next image
-        galleryImages[currentIndex].style.opacity = '1';
-      }
-      
-      // Change image every 3 seconds
-      setInterval(showNextImage, 3000);
+      const imgs = document.querySelectorAll('.gallery-wrap .gallery-image');
+      if (!imgs.length) return;
+      let i = 0;
+      setInterval(() => {
+        imgs[i].classList.remove('active');
+        i = (i + 1) % imgs.length;
+        imgs[i].classList.add('active');
+      }, 3200);
     })();
 
-    // Auto-rotating carousel for Products section
     (function() {
-      const productImages = document.querySelectorAll('.product-carousel .product-image');
-      if (productImages.length === 0) return;
-      
-      let currentIndex = 0;
-      
-      function showNextProduct() {
-        // Hide current image
-        productImages[currentIndex].style.opacity = '0';
-        
-        // Move to next image
-        currentIndex = (currentIndex + 1) % productImages.length;
-        
-        // Show next image
-        productImages[currentIndex].style.opacity = '1';
-      }
-      
-      // Change image every 3 seconds
-      setInterval(showNextProduct, 3000);
+      const imgs = document.querySelectorAll('.product-carousel-frame .product-image');
+      if (!imgs.length) return;
+      let i = 0;
+      setInterval(() => {
+        imgs[i].classList.remove('active');
+        i = (i + 1) % imgs.length;
+        imgs[i].classList.add('active');
+      }, 3200);
     })();
   </script>
 </body>
 </html>
-
-
