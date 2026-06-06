@@ -321,8 +321,36 @@ footer {
   .nav.open { display: flex; flex-direction: column; position: absolute; top: var(--nav-h); left: 0; right: 0; background: var(--kp-walnut); padding: 16px; gap: 4px; }
   [data-mobile-toggle] { display: block; margin-left: auto; }
 }
-
+    /* Language pill toggle */
+    .lang-pill {
+      display: inline-flex;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 20px;
+      padding: 3px;
+      margin-left: 10px;
+    }
+    .lang-pill a {
+      padding: 5px 12px !important;
+      font-size: 12px !important;
+      font-weight: 600 !important;
+      border-radius: 16px !important;
+      color: rgba(255,248,240,0.55) !important;
+      background: transparent !important;
+      transition: background .15s, color .15s;
+      line-height: 1;
+    }
+    .lang-pill a:hover {
+      color: var(--kp-white) !important;
+      background: rgba(255,255,255,0.06) !important;
+    }
+    .lang-pill a.active {
+      background: var(--kp-orange) !important;
+      color: var(--kp-white) !important;
+    }
+    .lang-pill a.active:hover { background: var(--kp-orange2) !important; }
   </style>
+
 </head>
 <body>
 
@@ -342,7 +370,7 @@ footer {
         <a href="index-redesign.html#tutors">Teach</a>
         <a href="index-redesign.html#community" class="nav-cta">Community</a>
         <a href="index-redesign.html#contact">Contact</a>
-        <a href="survey.html">Survey</a>
+        <span class="lang-pill"><a href="index-redesign.html" class="active">EN</a><a href="index-redesign-zh.html">中文</a></span>
       </nav>
     </div>
   </header>
@@ -539,14 +567,14 @@ footer {
           </div>
           <div class="contact-form-card">
             <h3>Send an Inquiry</h3>
-            <form class="form" action="thank-you.html" method="get">
+            <form class="form" id="inquiry-form-en">
               <label>
                 Your Email
-                <input class="input" type="email" name="email" placeholder="you@example.com" required />
+                <input class="input" type="email" name="email" id="inq-email-en" placeholder="you@example.com" required />
               </label>
               <label>
                 Message
-                <textarea class="input" name="message" rows="4" placeholder="How can we help?" required></textarea>
+                <textarea class="input" name="message" id="inq-msg-en" rows="4" placeholder="How can we help?" required></textarea>
               </label>
               <button class="btn primary" type="submit">Send Message</button>
             </form>
@@ -567,6 +595,22 @@ footer {
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Inquiry form → mailto
+    (function() {
+      const form = document.getElementById('inquiry-form-en');
+      if (!form) return;
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = document.getElementById('inq-email-en').value.trim();
+        const msg   = document.getElementById('inq-msg-en').value.trim();
+        const subject = encodeURIComponent('Inquiry from KogniPlay website');
+        const body = encodeURIComponent(
+          'From: ' + email + '\n\n' + msg
+        );
+        window.location.href = 'mailto:hello@kogniplay.com?subject=' + subject + '&body=' + body;
+      });
+    })();
 
     const toggle = document.querySelector('[data-mobile-toggle]');
     const nav = document.querySelector('[data-nav]');
