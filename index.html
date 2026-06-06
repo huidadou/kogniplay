@@ -565,7 +565,7 @@ footer {
             <p>#07-54 Paya Lebar Square<br>Singapore</p>
             <p style="margin-top: 20px; font-size: 0.85rem; color: rgba(255,248,240,0.4);">KogniPlay is a brand of Kognivium Pte. Ltd.</p>
           </div>
-          <div class="contact-form-card">
+          <div class="contact-form-card" id="inquiry-card-en">
             <h3>Send an Inquiry</h3>
             <form class="form" id="inquiry-form-en">
               <label>
@@ -576,7 +576,8 @@ footer {
                 Message
                 <textarea class="input" name="message" id="inq-msg-en" rows="4" placeholder="How can we help?" required></textarea>
               </label>
-              <button class="btn primary" type="submit">Send Message</button>
+              <button class="btn primary" type="submit" id="inq-btn-en">Send Message</button>
+              <div id="inq-status-en" style="display:none; padding: 12px 14px; border-radius: 10px; font-size: 14px; margin-top: 8px;"></div>
             </form>
           </div>
         </div>
@@ -596,19 +597,54 @@ footer {
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Inquiry form → mailto
+    // Inquiry form → Formsubmit (free email forwarding service)
     (function() {
-      const form = document.getElementById('inquiry-form-en');
+      const form   = document.getElementById('inquiry-form-en');
       if (!form) return;
-      form.addEventListener('submit', function(e) {
+      const btn    = document.getElementById('inq-btn-en');
+      const status = document.getElementById('inq-status-en');
+
+      form.addEventListener('submit', async function(e) {
         e.preventDefault();
         const email = document.getElementById('inq-email-en').value.trim();
         const msg   = document.getElementById('inq-msg-en').value.trim();
-        const subject = encodeURIComponent('Inquiry from KogniPlay website');
-        const body = encodeURIComponent(
-          'From: ' + email + '\n\n' + msg
-        );
-        window.location.href = 'mailto:hello@kogniplay.com?subject=' + subject + '&body=' + body;
+
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        status.style.display = 'none';
+
+        try {
+          const res = await fetch('https://formsubmit.co/ajax/hello@kogniplay.com', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+              email: email,
+              message: msg,
+              _subject: 'Inquiry from KogniPlay website',
+              _template: 'table'
+            })
+          });
+          const data = await res.json();
+          if (data.success === 'true' || data.success === true) {
+            status.style.background = '#D4EDDA';
+            status.style.color = '#1A5C24';
+            status.textContent = '✓ Thanks! Your message has been sent. We\'ll reply to ' + email + ' soon.';
+            status.style.display = 'block';
+            form.querySelector('#inq-email-en').value = '';
+            form.querySelector('#inq-msg-en').value = '';
+            btn.textContent = 'Send Another';
+            btn.disabled = false;
+          } else {
+            throw new Error('Submission failed');
+          }
+        } catch (err) {
+          status.style.background = '#FFE8D0';
+          status.style.color = '#7A3A00';
+          status.textContent = 'Sorry, something went wrong. Please email us directly at hello@kogniplay.com.';
+          status.style.display = 'block';
+          btn.textContent = 'Send Message';
+          btn.disabled = false;
+        }
       });
     })();
 

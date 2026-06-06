@@ -565,7 +565,7 @@ footer {
             <p>#07-54 Paya Lebar Square<br>新加坡</p>
             <p style="margin-top: 20px; font-size: 0.85rem; color: rgba(255,248,240,0.4);">KogniPlay 是 Kognivium Pte. Ltd. 旗下品牌。</p>
           </div>
-          <div class="contact-form-card">
+          <div class="contact-form-card" id="inquiry-card-zh">
             <h3>发送询问</h3>
             <form class="form" id="inquiry-form-zh">
               <label>
@@ -576,7 +576,8 @@ footer {
                 留言
                 <textarea class="input" name="message" id="inq-msg-zh" rows="4" placeholder="我们能为您做些什么？" required></textarea>
               </label>
-              <button class="btn primary" type="submit">发送留言</button>
+              <button class="btn primary" type="submit" id="inq-btn-zh">发送留言</button>
+              <div id="inq-status-zh" style="display:none; padding: 12px 14px; border-radius: 10px; font-size: 14px; margin-top: 8px;"></div>
             </form>
           </div>
         </div>
@@ -596,19 +597,54 @@ footer {
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Inquiry form → mailto
+    // Inquiry form → Formsubmit (free email forwarding service)
     (function() {
-      const form = document.getElementById('inquiry-form-zh');
+      const form   = document.getElementById('inquiry-form-zh');
       if (!form) return;
-      form.addEventListener('submit', function(e) {
+      const btn    = document.getElementById('inq-btn-zh');
+      const status = document.getElementById('inq-status-zh');
+
+      form.addEventListener('submit', async function(e) {
         e.preventDefault();
         const email = document.getElementById('inq-email-zh').value.trim();
         const msg   = document.getElementById('inq-msg-zh').value.trim();
-        const subject = encodeURIComponent('来自 KogniPlay 网站的询问');
-        const body = encodeURIComponent(
-          '发件人: ' + email + '\n\n' + msg
-        );
-        window.location.href = 'mailto:hello@kogniplay.com?subject=' + subject + '&body=' + body;
+
+        btn.disabled = true;
+        btn.textContent = '发送中…';
+        status.style.display = 'none';
+
+        try {
+          const res = await fetch('https://formsubmit.co/ajax/hello@kogniplay.com', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+              email: email,
+              message: msg,
+              _subject: '来自 KogniPlay 网站的询问',
+              _template: 'table'
+            })
+          });
+          const data = await res.json();
+          if (data.success === 'true' || data.success === true) {
+            status.style.background = '#D4EDDA';
+            status.style.color = '#1A5C24';
+            status.textContent = '✓ 谢谢！您的留言已发送，我们会尽快通过 ' + email + ' 与您联系。';
+            status.style.display = 'block';
+            form.querySelector('#inq-email-zh').value = '';
+            form.querySelector('#inq-msg-zh').value = '';
+            btn.textContent = '再发一条';
+            btn.disabled = false;
+          } else {
+            throw new Error('Submission failed');
+          }
+        } catch (err) {
+          status.style.background = '#FFE8D0';
+          status.style.color = '#7A3A00';
+          status.textContent = '抱歉，发送出现问题。请直接发邮件至 hello@kogniplay.com。';
+          status.style.display = 'block';
+          btn.textContent = '发送留言';
+          btn.disabled = false;
+        }
       });
     })();
 
