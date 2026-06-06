@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-Hans">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-  <title>KogniMethod™ — Teaching Philosophy &amp; Video Lessons</title>
-  <meta name="description" content="Explore KogniMethod: a carefully designed cube-solving method with step-by-step video lessons for all ages." />
+  <title>KogniPlay — 跨越世代，启发心智</title>
+  <meta name="description" content="KogniPlay 融合脑科学与寓教于乐，为活力长者与每一代人构建记忆力、专注力与思维敏捷度。" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
@@ -321,102 +321,6 @@ footer {
   .nav.open { display: flex; flex-direction: column; position: absolute; top: var(--nav-h); left: 0; right: 0; background: var(--kp-walnut); padding: 16px; gap: 4px; }
   [data-mobile-toggle] { display: block; margin-left: auto; }
 }
-
-
-    /* Page-specific additions */
-    .page-hero {
-      background: var(--kp-walnut);
-      padding: 72px 24px 64px;
-      text-align: center;
-    }
-    .page-hero .section-label { color: var(--kp-orange); margin-bottom: 12px; display: inline-block; }
-    .page-hero h1 {
-      font-family: 'DM Serif Display', Georgia, serif;
-      font-size: clamp(38px, 6vw, 56px);
-      line-height: 1.1; color: var(--kp-white);
-      margin-bottom: 20px;
-    }
-    .page-hero p {
-      font-size: 17px; color: rgba(255,248,240,0.65);
-      max-width: 600px; margin: 0 auto; line-height: 1.7;
-    }
-
-    .philosophy-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 20px; margin-top: 36px;
-    }
-    .philosophy-card {
-      background: var(--kp-white);
-      border: 1px solid var(--kp-sand);
-      border-radius: var(--radius-lg);
-      padding: 26px;
-      border-top: 4px solid var(--kp-green);
-      text-align: left;
-    }
-    .philosophy-card:nth-child(2) { border-top-color: var(--kp-orange); }
-    .philosophy-card:nth-child(3) { border-top-color: #B07B3A; }
-    .philosophy-card h3 { margin-bottom: 10px; }
-    .philosophy-card p { font-size: 0.92rem; color: var(--kp-brown); line-height: 1.65; margin: 0; }
-
-    .audience-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 20px; margin-top: 36px;
-    }
-    .audience-card {
-      background: var(--kp-white);
-      border: 1px solid var(--kp-sand);
-      border-radius: var(--radius-lg);
-      padding: 28px 24px;
-      text-align: center;
-    }
-    .audience-icon { font-size: 2.2rem; margin-bottom: 12px; }
-    .audience-card h3 { margin-bottom: 8px; }
-    .audience-card p { font-size: 0.9rem; color: var(--kp-brown); line-height: 1.6; margin: 0; }
-
-    .lesson-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 26px; margin-top: 8px;
-    }
-    .lesson-card {
-      background: var(--kp-white);
-      border: 1px solid var(--kp-sand);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
-    .lesson-header {
-      display: flex; align-items: center; gap: 12px;
-      padding: 14px 18px;
-      border-bottom: 1px solid var(--kp-sand);
-    }
-    .lesson-num {
-      width: 30px; height: 30px;
-      border-radius: 50%;
-      background: var(--kp-orange);
-      color: var(--kp-white);
-      font-size: 13px; font-weight: 700;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .lesson-header h3 { font-size: 0.95rem; margin: 0; color: var(--kp-walnut); }
-    .video-wrapper {
-      position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
-      background: var(--kp-walnut);
-    }
-    .video-wrapper iframe {
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%; border: 0; display: block;
-    }
-
-    @media (max-width: 900px) {
-      .philosophy-grid, .audience-grid, .lesson-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media (max-width: 520px) {
-      .philosophy-grid, .audience-grid, .lesson-grid {
-        grid-template-columns: 1fr;
-      }
-    }
     /* Language pill toggle */
     .lang-pill {
       display: inline-flex;
@@ -450,185 +354,232 @@ footer {
 </head>
 <body>
 
-  <!-- Header -->
   <header class="site-header">
     <div class="container navbar">
       <a class="brand" href="index.html">
         <img src="assets/img/logo.png" alt="KogniPlay logo" />
         KogniPlay<sup>TM</sup>
       </a>
-      <button data-mobile-toggle aria-label="Open menu">Menu</button>
+      <button data-mobile-toggle aria-label="打开菜单">菜单</button>
       <nav class="nav" data-nav>
-        <a href="index.html">Home</a>
-        <a href="index.html#about">About</a>
-        <a href="kogni-method.html">KogniMethod<sup>TM</sup></a>
-        <a href="index.html#products">Products</a>
-        <a href="index.html#services">Services</a>
-        <a href="index.html#tutors">Teach</a>
-        <a href="index.html#community" class="nav-cta">Community</a>
-        <a href="index.html#contact">Contact</a>
-        <span class="lang-pill"><a href="kogni-method.html" class="active">EN</a><a href="kogni-method-zh.html">中文</a></span>
+        <a href="index-zh.html">首页</a>
+        <a href="index-zh.html#about">关于我们</a>
+        <a href="kogni-method-zh.html">KogniMethod<sup>TM</sup></a>
+        <a href="index-zh.html#products">产品</a>
+        <a href="index-zh.html#services">课程</a>
+        <a href="index-zh.html#tutors">加入我们</a>
+        <a href="index-zh.html#community" class="nav-cta">社区</a>
+        <a href="index-zh.html#contact">联系我们</a>
+        <span class="lang-pill"><a href="index.html">EN</a><a href="index-zh.html" class="active">中文</a></span>
       </nav>
     </div>
   </header>
 
-  <!-- Page Hero -->
-  <div class="page-hero">
-    <span class="section-label">Our Method</span>
-    <h1>KogniMethod<sup style="font-size:0.45em;">TM</sup></h1>
-    <p>A carefully designed cube-solving method that ensures everyone — regardless of age or background — can solve a cube and build lasting cognitive skills.</p>
-  </div>
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">脑科学 × 教育 × 玩乐</div>
+      <h1>跨越世代<br><em>启发心智</em></h1>
+      <img src="assets/img/photo.png" alt="KogniPlay 跨代学习" class="hero-photo" />
+      <p class="hero-tagline">KogniPlay 将脑科学与寓教于乐结合，为活力长者和每一代人构建记忆力、专注力与思维敏捷度。</p>
+    </div>
+  </section>
 
   <main>
 
-    <!-- Teaching Philosophy -->
-    <section class="section">
+    <section class="section" id="about">
       <div class="container center">
-        <span class="section-label">Why It Works</span>
-        <h2>Teaching Philosophy</h2>
-        <p class="lead">We teach understanding first, speed second. Our method adapts to the learner — whether they are 8 or 80.</p>
-        <div class="philosophy-grid">
-          <div class="philosophy-card">
-            <h3>Friendly Over Technical</h3>
-            <p>Standard cube tutorials throw notation at you on day one. KogniMethod uses names you can remember and stages you can see, so anyone — child or grandparent — can follow along.</p>
+        <span class="section-label">关于我们</span>
+        <h2>关于 KogniPlay<sup>TM</sup></h2>
+        <p class="lead">融合脑科学的严谨与玩乐的喜悦，帮助人们更好地学习、更深地记忆、更紧密地连接彼此。</p>
+        <div class="grid cols-2">
+          <div class="card">
+            <div class="card-icon">🔭</div>
+            <h3>愿景</h3>
+            <p>通过游戏与认知参与，激发人类潜能。</p>
           </div>
-          <div class="philosophy-card">
-            <h3>Mnemonic-First Learning</h3>
-            <p>We use word associations, rhythm, and visual anchors to make algorithms memorable — especially important for older learners.</p>
+          <div class="card">
+            <div class="card-icon">🧩</div>
+            <h3>使命</h3>
+            <p>设计循证有效的工具与体验，提升各年龄段人群的学习力、记忆力与思维敏捷度。</p>
           </div>
-          <div class="philosophy-card">
-            <h3>Intergenerational by Design</h3>
-            <p>Sessions are structured so younger and older learners can progress together, each contributing and learning from the other.</p>
-          </div>
+        </div>
+        <div class="story-block">
+          <h3>我们的故事</h3>
+          <p>KogniPlay 始于一个简单的问题：我们如何将脑科学的严谨与玩乐的喜悦结合起来，帮助人们更好地学习、更深地记忆，并在世代之间建立紧密的连接？</p>
+          <p>受认知科学研究启发，并基于多年与各年龄段学习者的实践经验，我们创立 KogniPlay，致力于打造实用、有趣、能锻炼思维敏捷度的体验。我们专注于跨代学习，因为家庭、照护者与社区一起学习时效果最佳。</p>
         </div>
       </div>
     </section>
 
-    <!-- Who It's For -->
     <section class="section section--cream">
       <div class="container center">
-        <span class="section-label">Who It's For</span>
-        <h2>Designed For Every Learner</h2>
-        <p class="lead">KogniMethod is built for three audiences — each with their own adapted pace and materials.</p>
-        <div class="audience-grid">
-          <div class="audience-card">
-            <div class="audience-icon">👴</div>
-            <h3>Active Seniors (40+)</h3>
-            <p>Adapted pacing, larger visual aids, and shorter sequences. Focused on cognitive engagement and the joy of achievement.</p>
+        <span class="section-label">我们的理念</span>
+        <h2>核心价值</h2>
+        <div class="grid cols-3" style="margin-top: 12px;">
+          <div class="card card--value">
+            <div class="card-icon">🧠</div>
+            <h3>循证有效</h3>
+            <p>植根于脑科学与教育研究，带来真正有意义的成果。</p>
           </div>
-          <div class="audience-card">
-            <div class="audience-icon">🎒</div>
-            <h3>Students</h3>
-            <p>Structured progression from beginner to confident solver. Builds problem-solving and spatial reasoning alongside cubing.</p>
+          <div class="card card--value">
+            <div class="card-icon">🤝</div>
+            <h3>包容设计</h3>
+            <p>为长者、学生与家庭精心设计，让大家共同学习、共同成长。</p>
           </div>
-          <div class="audience-card">
-            <div class="audience-icon">👨‍👩‍👧</div>
-            <h3>Families</h3>
-            <p>Learn together. Our intergenerational format means parents, children, and grandparents can all progress in the same session.</p>
+          <div class="card card--value">
+            <div class="card-icon">✨</div>
+            <h3>趣味盎然</h3>
+            <p>用激发好奇心、自信心与连接感的活动和工具，让学习充满乐趣。</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Video Lessons -->
-    <section class="section">
+    <section class="section" id="kognimethod">
+      <div class="container center">
+        <span class="section-label">我们的方法</span>
+        <h2>KogniMethod<sup>TM</sup></h2>
+        <p class="lead">一套精心设计的魔方教学法，确保每个人——无论年龄或背景——都能学会解开魔方。</p>
+        <div class="gallery-wrap">
+          <img class="gallery-image active" src="assets/img/Kognimethod%201.jpg" alt="KogniMethod 步骤一" />
+          <img class="gallery-image"        src="assets/img/Kognimethod%202.png" alt="KogniMethod 步骤二" />
+        </div>
+        <a class="btn primary" href="kogni-method-zh.html">了解教学法</a>
+      </div>
+    </section>
+
+    <section class="section section--cream" id="products">
+      <div class="container center">
+        <span class="section-label">商店</span>
+        <h2>产品</h2>
+        <p class="lead">我们精心设计的魔方，是 KogniMethod 课程的基石工具。</p>
+        <div class="product-wrap">
+          <div class="product-carousel-frame">
+            <img class="product-image active" src="assets/img/product%201.png" alt="KogniPlay 魔方" />
+            <img class="product-image"        src="assets/img/product%202.png" alt="KogniPlay 魔方" />
+          </div>
+          <a href="https://www.amazon.com/dp/B0FX2V2DZ9" target="_blank" rel="noopener noreferrer" class="btn primary">在 Amazon 购买</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container center">
+        <span class="section-label">付费课程</span>
+        <h2>课程</h2>
+        <p class="lead">通过我们的付费课程，让你的魔方水平更上一层楼——专为想要超越基础的学习者打造。</p>
+        <div class="services-grid">
+          <div class="service-card bld">
+            <span class="service-badge badge-green">付费课程</span>
+            <h3>盲拧</h3>
+            <p>闭上双眼解开魔方，掌握记忆力与空间推理的精髓。这种训练对所有年龄段——尤其是长者——的工作记忆都大有裨益。</p>
+            <a href="index-zh.html#contact" class="btn secondary">咨询</a>
+          </div>
+          <div class="service-card speed">
+            <span class="service-badge badge-orange">付费课程</span>
+            <h3>速拧</h3>
+            <p>学习全球速拧选手使用的 CFOP 方法。掌握手法流畅度、提前观察与公式识别，迈向 WCA 比赛水平。</p>
+            <a href="index-zh.html#contact" class="btn secondary">咨询</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--cream" id="tutors">
+      <div class="container center">
+        <span class="section-label">加入团队</span>
+        <h2>成为 KogniPlay 导师</h2>
+        <p class="lead">你是经验丰富的速拧或盲拧高手吗？我们正在寻找充满热情的导师，加入我们的付费课程，帮助更多人发现魔方对心智的力量。</p>
+        <div class="tutors-grid">
+          <div class="card">
+            <div class="card-icon">🏆</div>
+            <h3>我们的寻找对象</h3>
+            <p>有竞赛经验的魔方爱好者——WCA 选手或自学高手皆可——对教学有真挚兴趣。具备速拧或盲拧背景者优先。</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">📚</div>
+            <h3>你将做的事</h3>
+            <p>使用 KogniPlay 的课程体系，开展一对一或小组教学。形式灵活——线下或线上皆可，时间由你安排。</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🌱</div>
+            <h3>为什么加入我们</h3>
+            <p>加入一支使命驱动的团队，站在认知科学与魔方的交汇点。具有竞争力的薪酬、有意义的工作、不断壮大的社区。</p>
+          </div>
+        </div>
+        <div style="margin-top: 32px;">
+          <a href="index-zh.html#contact" class="btn primary">联系我们</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--navy" id="community">
+      <div class="container center">
+        <span class="section-label">参与其中</span>
+        <h2>加入社区</h2>
+        <p class="lead">填写表格，我们会与你联系。你的信息有助于我们为学习者、志愿者与合作伙伴量身打造课程。</p>
+        <div class="community-card">
+          <form class="form" action="thank-you.html" method="get">
+            <label>
+              姓名
+              <input class="input" type="text" name="name" placeholder="你的姓名" required />
+            </label>
+            <label>
+              邮箱
+              <input class="input" type="email" name="email" placeholder="you@example.com" required />
+            </label>
+            <label>
+              年龄段
+              <select class="input select" name="age">
+                <option value="under18">18 岁以下</option>
+                <option value="18-34">18–34</option>
+                <option value="35-54">35–54</option>
+                <option value="55plus">55 岁以上</option>
+              </select>
+            </label>
+            <label>
+              加入原因
+              <select class="input select" name="reason">
+                <option value="learner">学习者</option>
+                <option value="speedcuber">速拧选手</option>
+                <option value="volunteer">志愿者</option>
+                <option value="partner">合作伙伴</option>
+              </select>
+            </label>
+            <button class="btn primary" type="submit" style="margin-top: 4px;">提交</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
       <div class="container">
         <div class="center" style="margin-bottom: 40px;">
-          <span class="section-label">Free Lessons</span>
-          <h2>Video Lessons</h2>
-          <p class="lead">Step-by-step video lessons — follow along at your own pace. Start from Lesson 1 and work through to a complete solve.</p>
+          <span class="section-label">联系方式</span>
+          <h2>联系我们</h2>
         </div>
-        <div class="lesson-grid">
-
-          <div class="lesson-card">
-            <div class="lesson-header"><div class="lesson-num">1</div><h3>Introduction</h3></div>
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/EM3bYX5uQyM?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="1. Introduction - KogniMethod"></iframe>
-            </div>
+        <div class="contact-grid">
+          <div class="address-card">
+            <h3>公司地址</h3>
+            <p><strong style="color:#fff;">Kognivium Pte. Ltd.</strong></p>
+            <p>#07-54 Paya Lebar Square<br>新加坡</p>
+            <p style="margin-top: 20px; font-size: 0.85rem; color: rgba(255,248,240,0.4);">KogniPlay 是 Kognivium Pte. Ltd. 旗下品牌。</p>
           </div>
-
-          <div class="lesson-card">
-            <div class="lesson-header"><div class="lesson-num">2</div><h3>Cube Basics</h3></div>
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/lk4x9hhp7yY?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="2. Cube Basics - KogniMethod"></iframe>
-            </div>
+          <div class="contact-form-card">
+            <h3>发送询问</h3>
+            <form class="form" id="inquiry-form-zh">
+              <label>
+                你的邮箱
+                <input class="input" type="email" name="email" id="inq-email-zh" placeholder="you@example.com" required />
+              </label>
+              <label>
+                留言
+                <textarea class="input" name="message" id="inq-msg-zh" rows="4" placeholder="我们能为您做些什么？" required></textarea>
+              </label>
+              <button class="btn primary" type="submit">发送留言</button>
+            </form>
           </div>
-
-          <div class="lesson-card">
-            <div class="lesson-header"><div class="lesson-num">3</div><h3>Golden Sequence</h3></div>
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/xk82kxIu9bk?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="3. Golden Sequence - KogniMethod"></iframe>
-            </div>
-          </div>
-
-          <div class="lesson-card">
-            <div class="lesson-header"><div class="lesson-num">4</div><h3>The Daisy</h3></div>
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/yesVxVeftM8?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="4. The Daisy - KogniMethod"></iframe>
-            </div>
-          </div>
-
-          <div class="lesson-card">
-            <div class="lesson-header"><div class="lesson-num">5</div><h3>The White Cross</h3></div>
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/_4d_3JHz16M?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="5. The White Cross - KogniMethod"></iframe>
-            </div>
-          </div>
-
-          <div class="lesson-card">
-            <div class="lesson-header"><div class="lesson-num">6</div><h3>The First Layer</h3></div>
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/kbMcj8AooTM?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="6. The First Layer - KogniMethod"></iframe>
-            </div>
-          </div>
-
-          <div class="lesson-card">
-            <div class="lesson-header"><div class="lesson-num">7</div><h3>The Second Layer</h3></div>
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/_CVDRX6qVDs?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="7. The Second Layer - KogniMethod"></iframe>
-            </div>
-          </div>
-
-          <div class="lesson-card">
-            <div class="lesson-header"><div class="lesson-num">8</div><h3>The Yellow Cross</h3></div>
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/OxI7W_2yo6M?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="8. The Yellow Cross - KogniMethod"></iframe>
-            </div>
-          </div>
-
-          <div class="lesson-card">
-            <div class="lesson-header"><div class="lesson-num">9</div><h3>Align the Corners</h3></div>
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/0IA0pSVkcP8?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="9. Align the Corners - KogniMethod"></iframe>
-            </div>
-          </div>
-
-          <div class="lesson-card">
-            <div class="lesson-header"><div class="lesson-num">10</div><h3>Yellow for All</h3></div>
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/j1mzU58jZIM?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="10. Yellow for All - KogniMethod"></iframe>
-            </div>
-          </div>
-
-          <div class="lesson-card">
-            <div class="lesson-header"><div class="lesson-num">11</div><h3>Solve the Cube</h3></div>
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/2_lNK4dA-Gk?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="11. Solve the Cube - KogniMethod"></iframe>
-            </div>
-          </div>
-
-          <div class="lesson-card">
-            <div class="lesson-header"><div class="lesson-num">12</div><h3>Ending</h3></div>
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/dTswLHkyci8?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="12. Ending - KogniMethod"></iframe>
-            </div>
-          </div>
-
         </div>
-
-        <p style="margin-top: 40px; text-align: center; color: var(--kp-brown); font-size: 0.95rem;">
-          Want to go further? Explore our paid <a href="index.html#services" style="color: var(--kp-orange); font-weight: 600; text-decoration: none;">Speedcubing and Blindfolded</a> lesson programmes, or <a href="index.html#community" style="color: var(--kp-orange); font-weight: 600; text-decoration: none;">join the community</a> to stay updated.
-        </p>
       </div>
     </section>
 
@@ -638,17 +589,56 @@ footer {
     <div class="container footer-inner">
       <span class="footer-brand">KogniPlay<sup>TM</sup></span>
       <span>© <span id="year"></span> Kognivium Pte. Ltd.</span>
-      <span>Neuroscience × Education × Play</span>
+      <span>脑科学 × 教育 × 玩乐</span>
     </div>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Inquiry form → mailto
+    (function() {
+      const form = document.getElementById('inquiry-form-zh');
+      if (!form) return;
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = document.getElementById('inq-email-zh').value.trim();
+        const msg   = document.getElementById('inq-msg-zh').value.trim();
+        const subject = encodeURIComponent('来自 KogniPlay 网站的询问');
+        const body = encodeURIComponent(
+          '发件人: ' + email + '\n\n' + msg
+        );
+        window.location.href = 'mailto:hello@kogniplay.com?subject=' + subject + '&body=' + body;
+      });
+    })();
+
     const toggle = document.querySelector('[data-mobile-toggle]');
     const nav = document.querySelector('[data-nav]');
     if (toggle && nav) {
       toggle.addEventListener('click', () => nav.classList.toggle('open'));
     }
+
+    (function() {
+      const imgs = document.querySelectorAll('.gallery-wrap .gallery-image');
+      if (!imgs.length) return;
+      let i = 0;
+      setInterval(() => {
+        imgs[i].classList.remove('active');
+        i = (i + 1) % imgs.length;
+        imgs[i].classList.add('active');
+      }, 3200);
+    })();
+
+    (function() {
+      const imgs = document.querySelectorAll('.product-carousel-frame .product-image');
+      if (!imgs.length) return;
+      let i = 0;
+      setInterval(() => {
+        imgs[i].classList.remove('active');
+        i = (i + 1) % imgs.length;
+        imgs[i].classList.add('active');
+      }, 3200);
+    })();
   </script>
 </body>
 </html>
