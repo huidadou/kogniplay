@@ -417,39 +417,57 @@ footer {
         grid-template-columns: 1fr;
       }
     }
-
-    .lang-toggle {
-      border: 1px solid rgba(255,248,240,0.25) !important;
-      padding: 6px 12px !important;
-      font-size: 13px !important;
-      margin-left: 6px;
+    /* Language pill toggle */
+    .lang-pill {
+      display: inline-flex;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 20px;
+      padding: 3px;
+      margin-left: 10px;
     }
-    .lang-toggle:hover {
-      border-color: var(--kp-orange) !important;
-      color: var(--kp-orange) !important;
+    .lang-pill a {
+      padding: 5px 12px !important;
+      font-size: 12px !important;
+      font-weight: 600 !important;
+      border-radius: 16px !important;
+      color: rgba(255,248,240,0.55) !important;
+      background: transparent !important;
+      transition: background .15s, color .15s;
+      line-height: 1;
     }
+    .lang-pill a:hover {
+      color: var(--kp-white) !important;
+      background: rgba(255,255,255,0.06) !important;
+    }
+    .lang-pill a.active {
+      background: var(--kp-orange) !important;
+      color: var(--kp-white) !important;
+    }
+    .lang-pill a.active:hover { background: var(--kp-orange2) !important; }
   </style>
+
 </head>
 <body>
 
   <!-- Header -->
   <header class="site-header">
     <div class="container navbar">
-      <a class="brand" href="index-redesign.html">
+      <a class="brand" href="index.html">
         <img src="assets/img/logo.png" alt="KogniPlay logo" />
         KogniPlay<sup>TM</sup>
       </a>
       <button data-mobile-toggle aria-label="Open menu">Menu</button>
       <nav class="nav" data-nav>
-        <a href="index-redesign.html">Home</a>
-        <a href="index-redesign.html#about">About</a>
-        <a href="kogni-method-redesign.html">KogniMethod<sup>TM</sup></a>
-        <a href="index-redesign.html#products">Products</a>
-        <a href="index-redesign.html#services">Services</a>
-        <a href="index-redesign.html#tutors">Teach</a>
-        <a href="index-redesign.html#community" class="nav-cta">Community</a>
-        <a href="index-redesign.html#contact">Contact</a>
-        <a href="kogni-method-redesign-zh.html" class="lang-toggle">中文</a>
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="kogni-method.html">KogniMethod<sup>TM</sup></a>
+        <a href="index.html#products">Products</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#tutors">Teach</a>
+        <a href="index.html#community" class="nav-cta">Community</a>
+        <a href="index.html#contact">Contact</a>
+        <span class="lang-pill"><a href="kogni-method.html" class="active">EN</a><a href="kogni-method-zh.html">中文</a></span>
       </nav>
     </div>
   </header>
@@ -609,7 +627,7 @@ footer {
         </div>
 
         <p style="margin-top: 40px; text-align: center; color: var(--kp-brown); font-size: 0.95rem;">
-          Want to go further? Explore our paid <a href="index-redesign.html#services" style="color: var(--kp-orange); font-weight: 600; text-decoration: none;">Speedcubing and Blindfolded</a> lesson programmes, or <a href="index-redesign.html#community" style="color: var(--kp-orange); font-weight: 600; text-decoration: none;">join the community</a> to stay updated.
+          Want to go further? Explore our paid <a href="index.html#services" style="color: var(--kp-orange); font-weight: 600; text-decoration: none;">Speedcubing and Blindfolded</a> lesson programmes, or <a href="index.html#community" style="color: var(--kp-orange); font-weight: 600; text-decoration: none;">join the community</a> to stay updated.
         </p>
       </div>
     </section>
