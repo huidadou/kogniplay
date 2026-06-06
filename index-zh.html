@@ -267,17 +267,21 @@ h3 { font-size: 1.05rem; font-weight: 600; color: var(--kp-walnut); margin-botto
   display: flex; flex-direction: column; gap: 6px;
   font-size: 14px; font-weight: 600; color: var(--kp-walnut);
 }
-.section--navy .form label { color: rgba(255,248,240,0.8); }
 .input {
   padding: 11px 14px; border: 1.5px solid var(--kp-sand);
   border-radius: 10px; font-family: inherit; font-size: 15px;
   color: var(--kp-walnut); background: var(--kp-white);
-  transition: border-color .15s; outline: none;
+  transition: border-color .15s, box-shadow .15s; outline: none;
+  width: 100%;
 }
-.input:focus { border-color: var(--kp-green); }
-.section--navy .input { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); color: var(--kp-white); }
-.section--navy .input::placeholder { color: rgba(255,255,255,0.35); }
-textarea.input { resize: vertical; }
+.input:focus { border-color: var(--kp-green); box-shadow: 0 0 0 3px rgba(74,155,80,0.15); }
+.input::placeholder { color: var(--kp-muted); opacity: 0.7; }
+textarea.input { resize: vertical; min-height: 80px; }
+select.input { cursor: pointer; appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%237A5C3A' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center;
+  padding-right: 36px;
+}
 
 /* ── BUTTONS ─────────────────────────────────────────────────────────────── */
 .btn {
@@ -369,7 +373,6 @@ footer {
         <a href="index-zh.html#services">课程</a>
         <a href="index-zh.html#tutors">加入我们</a>
         <a href="index-zh.html#community" class="nav-cta">社区</a>
-        <a href="index-zh.html#contact">联系我们</a>
         <span class="lang-pill"><a href="index.html">EN</a><a href="index-zh.html" class="active">中文</a></span>
       </nav>
     </div>
@@ -473,13 +476,13 @@ footer {
             <span class="service-badge badge-green">付费课程</span>
             <h3>盲拧</h3>
             <p>闭上双眼解开魔方，掌握记忆力与空间推理的精髓。这种训练对所有年龄段——尤其是长者——的工作记忆都大有裨益。</p>
-            <a href="index-zh.html#contact" class="btn secondary">咨询</a>
+            <a href="index-zh.html#community" class="btn secondary">咨询</a>
           </div>
           <div class="service-card speed">
             <span class="service-badge badge-orange">付费课程</span>
             <h3>速拧</h3>
             <p>学习全球速拧选手使用的 CFOP 方法。掌握手法流畅度、提前观察与公式识别，迈向 WCA 比赛水平。</p>
-            <a href="index-zh.html#contact" class="btn secondary">咨询</a>
+            <a href="index-zh.html#community" class="btn secondary">咨询</a>
           </div>
         </div>
       </div>
@@ -508,77 +511,74 @@ footer {
           </div>
         </div>
         <div style="margin-top: 32px;">
-          <a href="index-zh.html#contact" class="btn primary">联系我们</a>
+          <a href="index-zh.html#community" class="btn primary">联系我们</a>
         </div>
       </div>
     </section>
 
+    <!-- 加入社区 (表单) -->
     <section class="section section--navy" id="community">
-      <div class="container center">
-        <span class="section-label">参与其中</span>
-        <h2>加入社区</h2>
-        <p class="lead">填写表格，我们会与你联系。你的信息有助于我们为学习者、志愿者与合作伙伴量身打造课程。</p>
-        <div class="community-card">
-          <form class="form" action="thank-you.html" method="get">
+      <div class="container">
+        <div class="center" style="margin-bottom: 32px;">
+          <span class="section-label">参与其中</span>
+          <h2>加入社区</h2>
+          <p class="lead" style="margin-left: auto; margin-right: auto;">无论你是学习者、志愿者、合作伙伴，还是只想了解更多——填写表格，我们会与你联系。你的信息有助于我们为你量身定制内容并及时回应。</p>
+        </div>
+        <div class="contact-form-card" id="join-card-zh" style="max-width: 640px; margin: 0 auto;">
+          <h3>给我们留言</h3>
+          <form class="form" id="join-form-zh">
             <label>
               姓名
-              <input class="input" type="text" name="name" placeholder="你的姓名" required />
+              <input class="input" type="text" name="name" id="join-name-zh" placeholder="你的姓名" required />
             </label>
             <label>
               邮箱
-              <input class="input" type="email" name="email" placeholder="you@example.com" required />
+              <input class="input" type="email" name="email" id="join-email-zh" placeholder="you@example.com" required />
             </label>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+              <label>
+                年龄段
+                <select class="input select" name="age" id="join-age-zh">
+                  <option value="under18">18 岁以下</option>
+                  <option value="18-34">18–34</option>
+                  <option value="35-54">35–54</option>
+                  <option value="55plus">55 岁以上</option>
+                </select>
+              </label>
+              <label>
+                我是…
+                <select class="input select" name="reason" id="join-reason-zh">
+                  <option value="learner">学习者</option>
+                  <option value="speedcuber">速拧选手</option>
+                  <option value="tutor">有意担任导师</option>
+                  <option value="volunteer">志愿者</option>
+                  <option value="partner">合作伙伴 / 赞助方</option>
+                  <option value="other">其他</option>
+                </select>
+              </label>
+            </div>
             <label>
-              年龄段
-              <select class="input select" name="age">
-                <option value="under18">18 岁以下</option>
-                <option value="18-34">18–34</option>
-                <option value="35-54">35–54</option>
-                <option value="55plus">55 岁以上</option>
-              </select>
+              留言 <span style="font-weight: 400; color: var(--kp-muted); font-size: 0.85rem;">（选填）</span>
+              <textarea class="input" name="message" id="join-msg-zh" rows="3" placeholder="简单介绍一下你自己，或告诉我们你感兴趣的内容…"></textarea>
             </label>
-            <label>
-              加入原因
-              <select class="input select" name="reason">
-                <option value="learner">学习者</option>
-                <option value="speedcuber">速拧选手</option>
-                <option value="volunteer">志愿者</option>
-                <option value="partner">合作伙伴</option>
-              </select>
-            </label>
-            <button class="btn primary" type="submit" style="margin-top: 4px;">提交</button>
+            <button class="btn primary" type="submit" id="join-btn-zh">提交</button>
+            <div id="join-status-zh" style="display:none; padding: 12px 14px; border-radius: 10px; font-size: 14px; margin-top: 8px;"></div>
           </form>
         </div>
       </div>
     </section>
 
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="center" style="margin-bottom: 40px;">
-          <span class="section-label">联系方式</span>
-          <h2>联系我们</h2>
-        </div>
-        <div class="contact-grid">
-          <div class="address-card">
-            <h3>公司地址</h3>
-            <p><strong style="color:#fff;">Kognivium Pte. Ltd.</strong></p>
+    <!-- 联系我们 (仅地址) -->
+    <section class="section section--cream" id="contact">
+      <div class="container center">
+        <span class="section-label">联系方式</span>
+        <h2>联系我们</h2>
+        <div style="max-width: 480px; margin: 28px auto 0;">
+          <div class="address-card" style="text-align: left;">
+            <h3>Kognivium Pte. Ltd.</h3>
             <p>#07-54 Paya Lebar Square<br>新加坡</p>
-            <p style="margin-top: 20px; font-size: 0.85rem; color: rgba(255,248,240,0.4);">KogniPlay 是 Kognivium Pte. Ltd. 旗下品牌。</p>
-          </div>
-          <div class="contact-form-card" id="inquiry-card-zh">
-            <h3>发送询问</h3>
-            <form class="form" id="inquiry-form-zh">
-              <label>
-                你的邮箱
-                <input class="input" type="email" name="email" id="inq-email-zh" placeholder="you@example.com" required />
-              </label>
-              <label>
-                留言
-                <textarea class="input" name="message" id="inq-msg-zh" rows="4" placeholder="我们能为您做些什么？" required></textarea>
-              </label>
-              <button class="btn primary" type="submit" id="inq-btn-zh">发送留言</button>
-              <div id="inq-status-zh" style="display:none; padding: 12px 14px; border-radius: 10px; font-size: 14px; margin-top: 8px;"></div>
-            </form>
+            <p style="margin-top: 18px;"><a href="mailto:hello@kogniplay.com" style="color: var(--kp-orange); text-decoration: none; font-weight: 600;">hello@kogniplay.com</a></p>
+            <p style="margin-top: 20px; font-size: 0.85rem; color: rgba(255,248,240,0.5);">KogniPlay 是 Kognivium Pte. Ltd. 旗下品牌。</p>
           </div>
         </div>
       </div>
@@ -597,17 +597,20 @@ footer {
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Inquiry form → Formsubmit (free email forwarding service)
+    // Combined Join / Contact form → Formsubmit
     (function() {
-      const form   = document.getElementById('inquiry-form-zh');
+      const form   = document.getElementById('join-form-zh');
       if (!form) return;
-      const btn    = document.getElementById('inq-btn-zh');
-      const status = document.getElementById('inq-status-zh');
+      const btn    = document.getElementById('join-btn-zh');
+      const status = document.getElementById('join-status-zh');
 
       form.addEventListener('submit', async function(e) {
         e.preventDefault();
-        const email = document.getElementById('inq-email-zh').value.trim();
-        const msg   = document.getElementById('inq-msg-zh').value.trim();
+        const name   = document.getElementById('join-name-zh').value.trim();
+        const email  = document.getElementById('join-email-zh').value.trim();
+        const age    = document.getElementById('join-age-zh').value;
+        const reason = document.getElementById('join-reason-zh').value;
+        const msg    = document.getElementById('join-msg-zh').value.trim();
 
         btn.disabled = true;
         btn.textContent = '发送中…';
@@ -618,9 +621,12 @@ footer {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify({
+              name: name,
               email: email,
-              message: msg,
-              _subject: '来自 KogniPlay 网站的询问',
+              age_group: age,
+              i_am_a: reason,
+              message: msg || '(无留言)',
+              _subject: '来自 KogniPlay 网站的社区报名 — ' + name + ' (' + reason + ')',
               _template: 'table'
             })
           });
@@ -628,10 +634,9 @@ footer {
           if (data.success === 'true' || data.success === true) {
             status.style.background = '#D4EDDA';
             status.style.color = '#1A5C24';
-            status.textContent = '✓ 谢谢！您的留言已发送，我们会尽快通过 ' + email + ' 与您联系。';
+            status.textContent = '✓ 谢谢 ' + name + '！我们已收到你的留言，会尽快通过 ' + email + ' 与你联系。';
             status.style.display = 'block';
-            form.querySelector('#inq-email-zh').value = '';
-            form.querySelector('#inq-msg-zh').value = '';
+            form.reset();
             btn.textContent = '再发一条';
             btn.disabled = false;
           } else {
@@ -642,7 +647,7 @@ footer {
           status.style.color = '#7A3A00';
           status.textContent = '抱歉，发送出现问题。请直接发邮件至 hello@kogniplay.com。';
           status.style.display = 'block';
-          btn.textContent = '发送留言';
+          btn.textContent = '提交';
           btn.disabled = false;
         }
       });

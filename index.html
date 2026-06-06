@@ -267,17 +267,21 @@ h3 { font-size: 1.05rem; font-weight: 600; color: var(--kp-walnut); margin-botto
   display: flex; flex-direction: column; gap: 6px;
   font-size: 14px; font-weight: 600; color: var(--kp-walnut);
 }
-.section--navy .form label { color: rgba(255,248,240,0.8); }
 .input {
   padding: 11px 14px; border: 1.5px solid var(--kp-sand);
   border-radius: 10px; font-family: inherit; font-size: 15px;
   color: var(--kp-walnut); background: var(--kp-white);
-  transition: border-color .15s; outline: none;
+  transition: border-color .15s, box-shadow .15s; outline: none;
+  width: 100%;
 }
-.input:focus { border-color: var(--kp-green); }
-.section--navy .input { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); color: var(--kp-white); }
-.section--navy .input::placeholder { color: rgba(255,255,255,0.35); }
-textarea.input { resize: vertical; }
+.input:focus { border-color: var(--kp-green); box-shadow: 0 0 0 3px rgba(74,155,80,0.15); }
+.input::placeholder { color: var(--kp-muted); opacity: 0.7; }
+textarea.input { resize: vertical; min-height: 80px; }
+select.input { cursor: pointer; appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%237A5C3A' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center;
+  padding-right: 36px;
+}
 
 /* ── BUTTONS ─────────────────────────────────────────────────────────────── */
 .btn {
@@ -369,7 +373,6 @@ footer {
         <a href="index.html#services">Services</a>
         <a href="index.html#tutors">Teach</a>
         <a href="index.html#community" class="nav-cta">Community</a>
-        <a href="index.html#contact">Contact</a>
         <span class="lang-pill"><a href="index.html" class="active">EN</a><a href="index-zh.html">中文</a></span>
       </nav>
     </div>
@@ -473,13 +476,13 @@ footer {
             <span class="service-badge badge-green">Paid Lesson</span>
             <h3>Blindfolded Solving</h3>
             <p>Master memorisation and spatial reasoning by solving the cube eyes-closed. Trains working memory in ways that benefit learners of all ages — especially older adults.</p>
-            <a href="index.html#contact" class="btn secondary">Enquire</a>
+            <a href="index.html#community" class="btn secondary">Enquire</a>
           </div>
           <div class="service-card speed">
             <span class="service-badge badge-orange">Paid Lesson</span>
             <h3>Speedcubing</h3>
             <p>Learn the CFOP method used by competitive solvers worldwide. Build finger-trick fluency, look-ahead, and algorithm recognition toward WCA competition readiness.</p>
-            <a href="index.html#contact" class="btn secondary">Enquire</a>
+            <a href="index.html#community" class="btn secondary">Enquire</a>
           </div>
         </div>
       </div>
@@ -508,77 +511,74 @@ footer {
           </div>
         </div>
         <div style="margin-top: 32px;">
-          <a href="index.html#contact" class="btn primary">Get in Touch</a>
+          <a href="index.html#community" class="btn primary">Get in Touch</a>
         </div>
       </div>
     </section>
 
+    <!-- Join the Community (form) -->
     <section class="section section--navy" id="community">
-      <div class="container center">
-        <span class="section-label">Get Involved</span>
-        <h2>Join the Community</h2>
-        <p class="lead">Fill in the form and we'll be in touch. Your information helps us tailor programmes for learners, volunteers, and partners.</p>
-        <div class="community-card">
-          <form class="form" action="thank-you.html" method="get">
+      <div class="container">
+        <div class="center" style="margin-bottom: 32px;">
+          <span class="section-label">Get In Touch</span>
+          <h2>Join the Community</h2>
+          <p class="lead" style="margin-left: auto; margin-right: auto;">Whether you're a learner, volunteer, partner, or just curious — fill in the form and we'll be in touch. Your information helps us tailor programmes and respond to your interest.</p>
+        </div>
+        <div class="contact-form-card" id="join-card-en" style="max-width: 640px; margin: 0 auto;">
+          <h3>Send Us a Message</h3>
+          <form class="form" id="join-form-en">
             <label>
               Name
-              <input class="input" type="text" name="name" placeholder="Your name" required />
+              <input class="input" type="text" name="name" id="join-name-en" placeholder="Your name" required />
             </label>
             <label>
               Email
-              <input class="input" type="email" name="email" placeholder="you@example.com" required />
+              <input class="input" type="email" name="email" id="join-email-en" placeholder="you@example.com" required />
             </label>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+              <label>
+                Age Group
+                <select class="input select" name="age" id="join-age-en">
+                  <option value="under18">Under 18</option>
+                  <option value="18-34">18–34</option>
+                  <option value="35-54">35–54</option>
+                  <option value="55plus">55+</option>
+                </select>
+              </label>
+              <label>
+                I am a…
+                <select class="input select" name="reason" id="join-reason-en">
+                  <option value="learner">Learner</option>
+                  <option value="speedcuber">Speedcuber / Competitor</option>
+                  <option value="tutor">Prospective Tutor</option>
+                  <option value="volunteer">Volunteer</option>
+                  <option value="partner">Partner / Sponsor</option>
+                  <option value="other">Other</option>
+                </select>
+              </label>
+            </div>
             <label>
-              Age Group
-              <select class="input select" name="age">
-                <option value="under18">Under 18</option>
-                <option value="18-34">18–34</option>
-                <option value="35-54">35–54</option>
-                <option value="55plus">55+</option>
-              </select>
+              Message <span style="font-weight: 400; color: var(--kp-muted); font-size: 0.85rem;">(optional)</span>
+              <textarea class="input" name="message" id="join-msg-en" rows="3" placeholder="Tell us a bit about yourself or what you're interested in…"></textarea>
             </label>
-            <label>
-              Reason for joining
-              <select class="input select" name="reason">
-                <option value="learner">Learner</option>
-                <option value="speedcuber">Speedcuber / Competitor</option>
-                <option value="volunteer">Volunteer</option>
-                <option value="partner">Partner</option>
-              </select>
-            </label>
-            <button class="btn primary" type="submit" style="margin-top: 4px;">Submit</button>
+            <button class="btn primary" type="submit" id="join-btn-en">Submit</button>
+            <div id="join-status-en" style="display:none; padding: 12px 14px; border-radius: 10px; font-size: 14px; margin-top: 8px;"></div>
           </form>
         </div>
       </div>
     </section>
 
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="center" style="margin-bottom: 40px;">
-          <span class="section-label">Reach Us</span>
-          <h2>Contact &amp; Socials</h2>
-        </div>
-        <div class="contact-grid">
-          <div class="address-card">
-            <h3>Company Address</h3>
-            <p><strong style="color:#fff;">Kognivium Pte. Ltd.</strong></p>
+    <!-- Contact (address only) -->
+    <section class="section section--cream" id="contact">
+      <div class="container center">
+        <span class="section-label">Reach Us</span>
+        <h2>Contact</h2>
+        <div style="max-width: 480px; margin: 28px auto 0;">
+          <div class="address-card" style="text-align: left;">
+            <h3>Kognivium Pte. Ltd.</h3>
             <p>#07-54 Paya Lebar Square<br>Singapore</p>
-            <p style="margin-top: 20px; font-size: 0.85rem; color: rgba(255,248,240,0.4);">KogniPlay is a brand of Kognivium Pte. Ltd.</p>
-          </div>
-          <div class="contact-form-card" id="inquiry-card-en">
-            <h3>Send an Inquiry</h3>
-            <form class="form" id="inquiry-form-en">
-              <label>
-                Your Email
-                <input class="input" type="email" name="email" id="inq-email-en" placeholder="you@example.com" required />
-              </label>
-              <label>
-                Message
-                <textarea class="input" name="message" id="inq-msg-en" rows="4" placeholder="How can we help?" required></textarea>
-              </label>
-              <button class="btn primary" type="submit" id="inq-btn-en">Send Message</button>
-              <div id="inq-status-en" style="display:none; padding: 12px 14px; border-radius: 10px; font-size: 14px; margin-top: 8px;"></div>
-            </form>
+            <p style="margin-top: 18px;"><a href="mailto:hello@kogniplay.com" style="color: var(--kp-orange); text-decoration: none; font-weight: 600;">hello@kogniplay.com</a></p>
+            <p style="margin-top: 20px; font-size: 0.85rem; color: rgba(255,248,240,0.5);">KogniPlay is a brand of Kognivium Pte. Ltd.</p>
           </div>
         </div>
       </div>
@@ -597,17 +597,20 @@ footer {
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Inquiry form → Formsubmit (free email forwarding service)
+    // Combined Join / Contact form → Formsubmit
     (function() {
-      const form   = document.getElementById('inquiry-form-en');
+      const form   = document.getElementById('join-form-en');
       if (!form) return;
-      const btn    = document.getElementById('inq-btn-en');
-      const status = document.getElementById('inq-status-en');
+      const btn    = document.getElementById('join-btn-en');
+      const status = document.getElementById('join-status-en');
 
       form.addEventListener('submit', async function(e) {
         e.preventDefault();
-        const email = document.getElementById('inq-email-en').value.trim();
-        const msg   = document.getElementById('inq-msg-en').value.trim();
+        const name   = document.getElementById('join-name-en').value.trim();
+        const email  = document.getElementById('join-email-en').value.trim();
+        const age    = document.getElementById('join-age-en').value;
+        const reason = document.getElementById('join-reason-en').value;
+        const msg    = document.getElementById('join-msg-en').value.trim();
 
         btn.disabled = true;
         btn.textContent = 'Sending…';
@@ -618,9 +621,12 @@ footer {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify({
+              name: name,
               email: email,
-              message: msg,
-              _subject: 'Inquiry from KogniPlay website',
+              age_group: age,
+              i_am_a: reason,
+              message: msg || '(no message)',
+              _subject: 'New community signup — ' + name + ' (' + reason + ')',
               _template: 'table'
             })
           });
@@ -628,10 +634,9 @@ footer {
           if (data.success === 'true' || data.success === true) {
             status.style.background = '#D4EDDA';
             status.style.color = '#1A5C24';
-            status.textContent = '✓ Thanks! Your message has been sent. We\'ll reply to ' + email + ' soon.';
+            status.textContent = '✓ Thanks ' + name + '! We\'ve received your message and will reply to ' + email + ' soon.';
             status.style.display = 'block';
-            form.querySelector('#inq-email-en').value = '';
-            form.querySelector('#inq-msg-en').value = '';
+            form.reset();
             btn.textContent = 'Send Another';
             btn.disabled = false;
           } else {
@@ -642,7 +647,7 @@ footer {
           status.style.color = '#7A3A00';
           status.textContent = 'Sorry, something went wrong. Please email us directly at hello@kogniplay.com.';
           status.style.display = 'block';
-          btn.textContent = 'Send Message';
+          btn.textContent = 'Submit';
           btn.disabled = false;
         }
       });
